@@ -2,28 +2,26 @@
 
 // --- Resume Data Model ---
 const resumeData = {
-    name: "Amee Brahmbhatt",
-    title: "Senior .NET Developer / SQL Server DBA",
-    email: "Brahmbhattami7@gmail.com",
-    phone: "+91 81418 02828",
+    name: "Gaurav Maurya",
+    title: ".NET Core Backend Developer / REST APIs / SQL Server",
+    email: "gauravmaurya919@gmail.com",
+    phone: "+91 84189 31740",
     location: "Ahmedabad, Gujarat, India",
-    linkedin: "linkedin.com/in/brahmbhatt-ami-42615618b",
-    experienceYears: 7.2,
-    summary: "Senior .NET Developer and SQL Server Database Administrator with 7+ years of experience designing and optimizing enterprise backend systems. Deep expertise in ASP.NET MVC, .NET Core (6/7/8), RESTful API development, and SQL Server database management (tuning, backups, indexing, stored procedures).",
+    linkedin: "linkedin.com/in/gaurav-maurya-830a071a6",
+    experienceYears: 3.0,
+    summary: "Results-driven Backend Developer with 3+ years of experience engineering high-performance REST APIs and enterprise applications using .NET Core, C#, ASP.NET MVC, and SQL Server. Delivered a 35–40% reduction in API response latency through LINQ optimization and Redis distributed caching, and a 30%+ boost in SQL query performance via stored procedures and indexing strategies. Adept at clean architecture, SOLID principles, microservices design, and Agile delivery.",
     skills: {
-        "Backend": ["ASP.NET MVC", "ASP.NET Web API", ".NET Framework", ".NET Core (.NET 6/7/8)", "Entity Framework", "LINQ", "REST APIs", "Dapper"],
-        "Languages": ["C#", "SQL", "TypeScript"],
-        "Database & DBA": ["SQL Server", "Stored Procedures", "Functions", "Triggers", "Query Optimization", "Execution Plans", "Performance Tuning", "Indexing", "Backup & Recovery", "DB Design & Normalization"],
-        "Architecture": ["Clean Architecture", "N-Tier", "Repository Pattern", "Dependency Injection", "SOLID", "Design Patterns", "Microservices"],
-        "Security": ["JWT Authentication", "OAuth 2.0", "Role-Based Access Control (RBAC)", "API Security", "Data Encryption"],
-        "Tools": ["Visual Studio", "SSMS", "Postman", "Swagger / OpenAPI", "Git", "GitHub", "Jira"],
-        "Methodologies": ["Agile", "Scrum", "SDLC", "Code Review", "Unit Testing", "Requirement Analysis", "Production Deployments"],
-        "AI Tools": ["GitHub Copilot", "Cursor AI", "ChatGPT", "Claude AI", "AI Workflow Integration"]
+        "Backend": ["C#", ".NET Core", "ASP.NET MVC", "ASP.NET Web API", "Entity Framework Core", "Dapper", "Minimal APIs", "gRPC", "SignalR"],
+        "Databases": ["SQL Server", "Stored Procedures", "Indexing", "Query Optimization", "Performance Tuning", "Database Normalization"],
+        "DevOps & Cloud": ["Docker", "Azure App Service", "Azure SQL", "CI/CD Pipelines", "Git", "GitHub", "Bitbucket"],
+        "Frontend": ["Angular", "React", "Next.js (SSR)", "HTML5", "CSS3", "Bootstrap", "TypeScript", "JavaScript"],
+        "Architecture": ["Clean Architecture", "Vertical Slice Architecture", "N-Tier", "Repository Pattern", "SOLID", "Dependency Injection", "Design Patterns"],
+        "Security": ["JWT Authentication", "OAuth 2.0", "Role-Based Access Control (RBAC)", "API Security"],
+        "Tools": ["Visual Studio", "VS Code", "Postman", "Swagger/OpenAPI", "SSMS", "Jira", "GitHub Copilot", "Cursor"]
     },
     achievements: [
-        "Best Performer Award - Q4 2023 at Technobrains IT Solution.",
-        "Managed database design, query optimization, and backup strategies as Lead DBA for a mission-critical Healthcare platform.",
-        "Mentored and guided multiple junior backend developers, elevating the standard of clean architecture."
+        "Employee Spotlight Award – Technobrains Business Solutions (May 2024): Recognized for consistent high performance, measurable backend optimization contributions, and proactive ownership of performance-critical API and database improvements.",
+        "Delivered 35–40% API latency reduction and 30%+ SQL performance improvement within Year 1, directly contributing to better end-user experience and system reliability."
     ]
 };
 
@@ -424,7 +422,7 @@ const initialApplications = [
         status: "applied",
         date: "2026-06-20",
         matchScore: 96,
-        coverLetter: "Dear Hiring Team,\n\nI am writing to express my interest in the Senior .NET Core Backend Architect position at Simform. With over 7 years of backend engineering experience, including my current work at Technobrains IT Solution, I specialize in building robust backend services using C# and .NET Core. I have a proven track record in optimizing SQL servers, designing REST APIs, and implementing Clean Architecture.\n\nThank you for considering my application.\n\nBest regards,\nAmee Brahmbhatt"
+        coverLetter: "Dear Hiring Team,\n\nI am writing to express my interest in the Senior .NET Core Backend Architect position at Simform. With over 3 years of backend engineering experience, including my current work at Technobrains Business Solutions, I specialize in building robust backend services using C# and .NET Core. I have a proven track record in optimizing SQL servers, designing REST APIs, and implementing Clean Architecture.\n\nThank you for considering my application.\n\nBest regards,\nGaurav Maurya"
     },
     {
         id: "app-103",
@@ -434,7 +432,7 @@ const initialApplications = [
         status: "interviewing",
         date: "2026-06-18",
         matchScore: 95,
-        coverLetter: "Dear Cognizant Hiring Team,\n\nI am thrilled to apply for the Senior Backend Developer position. Having designed secure medical platforms with AI workflow systems at Technobrains, I am confident in my ability to deliver highly-compliant, top-performing Web APIs. My DBA expertise ensures database setups are optimized and secured.\n\nBest regards,\nAmee Brahmbhatt"
+        coverLetter: "Dear Cognizant Hiring Team,\n\nI am thrilled to apply for the Senior Backend Developer position. Having designed secure medical platforms with AI workflow systems at Technobrains, I am confident in my ability to deliver highly-compliant, top-performing Web APIs. My backend expertise ensures database setups are optimized and secured.\n\nBest regards,\nGaurav Maurya"
     }
 ];
 
@@ -443,9 +441,9 @@ let state = {
     applications: [],
     selectedJobId: null,
     credentials: {
-        liUser: "Brahmbhattami7@gmail.com",
+        liUser: "gauravmaurya919@gmail.com",
         liPass: "•••••••••••••",
-        nkUser: "Brahmbhattami7@gmail.com",
+        nkUser: "gauravmaurya919@gmail.com",
         nkPass: "•••••••••••••"
     }
 };
@@ -457,9 +455,9 @@ function loadState() {
         state = JSON.parse(saved);
         if (!state.credentials) {
             state.credentials = {
-                liUser: "Brahmbhattami7@gmail.com",
+                liUser: "gauravmaurya919@gmail.com",
                 liPass: "•••••••••••••",
-                nkUser: "Brahmbhattami7@gmail.com",
+                nkUser: "gauravmaurya919@gmail.com",
                 nkPass: "•••••••••••••"
             };
         }
@@ -470,9 +468,9 @@ function loadState() {
         state.applications = [...initialApplications];
         state.selectedJobId = null;
         state.credentials = {
-            liUser: "Brahmbhattami7@gmail.com",
+            liUser: "gauravmaurya919@gmail.com",
             liPass: "•••••••••••••",
-            nkUser: "Brahmbhattami7@gmail.com",
+            nkUser: "gauravmaurya919@gmail.com",
             nkPass: "•••••••••••••"
         };
         state.automationMode = "automated";
@@ -551,6 +549,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateGlobalStats();
     setupModalEvents();
     setupBulkApply();
+    setupSecurityLock();
 
     // Set jobs count badge
     jobsCountBadge.textContent = jobsData.length;
@@ -564,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.getElementById("btn-export-cv").addEventListener("click", () => {
         showToast("Simulating Resume PDF Download...");
-        window.open("file:///f:/Resume2026/Amee_Brahmbhatt_ATS_Resume_Backend.pdf", "_blank");
+        window.open("Gaurav_Maurya_ATS_Resume_Backend.pdf", "_blank");
     });
     document.getElementById("link-view-all-companies").addEventListener("click", () => {
         switchTab("companies");
@@ -609,7 +608,7 @@ function switchTab(tabId) {
         // Customize main header text depending on tab
         if (tabId === "dashboard") {
             pageTitle.textContent = "Dashboard Overview";
-            pageSubtitle.textContent = "Welcome back, Amee. Here's your personalized .NET & DBA job recommendation board.";
+            pageSubtitle.textContent = "Welcome back, Gaurav. Here's your personalized .NET & microservices job recommendation board.";
         } else if (tabId === "jobs") {
             pageTitle.textContent = "Custom Jobs Feed";
             pageSubtitle.textContent = "Browse top positions mapped directly to your database performance and C# backend skills.";
@@ -623,7 +622,7 @@ function switchTab(tabId) {
             pageTitle.textContent = "Bulk Auto-Apply Runner";
             pageSubtitle.textContent = "Enter target job URLs, store authentication credentials, and run simulated webdriver submissions.";
         } else if (tabId === "profile") {
-            pageTitle.textContent = "Amee Brahmbhatt's ATS Resume";
+            pageTitle.textContent = "Gaurav Maurya's ATS Resume";
             pageSubtitle.textContent = "Source resume content utilized for computing AI matching criteria.";
         }
     }
@@ -1155,27 +1154,27 @@ function generateCoverLetter(job) {
     // Pick specific achievements or details to customize letter
     let specificParagraph = "";
     if (job.specialty === "dba" || job.title.toLowerCase().includes("dba") || job.title.toLowerCase().includes("database")) {
-        specificParagraph = "Throughout my 7+ years of database engineering, I have focused heavily on SQL Server lifecycle management, database design schemas, index restructuring, and query plan optimizations. In my recent role at Technobrains, I took end-to-end DBA ownership of healthcare platform databases, implementing disaster recovery setups and tuning execution workflows to increase operational responsiveness.";
+        specificParagraph = "Throughout my 3+ years of backend engineering, I have focused heavily on SQL Server lifecycle management, database design schemas, index restructuring, and query plan optimizations. In my recent role at Technobrains, I took end-to-end backend ownership of platform databases, implementing optimized database schemas and tuning execution workflows to increase operational responsiveness.";
     } else if (job.specialty === "architect" || job.title.toLowerCase().includes("architect") || job.title.toLowerCase().includes("lead")) {
-        specificParagraph = "With more than 7 years of backend engineering experience, I specialize in architecting scalable .NET Core backend systems utilizing Clean Architecture, SOLID design principles, and RESTful API structures. My background includes leading design workflows, integrating JWT/RBAC security pipelines, and implementing AI automations to optimize business workflows.";
+        specificParagraph = "With more than 3 years of backend engineering experience, I specialize in architecting scalable .NET Core backend systems utilizing Clean Architecture, SOLID design principles, and RESTful API structures. My background includes leading backend design workflows, integrating JWT/RBAC security pipelines, and implementing Redis caching to optimize business workflows.";
     } else {
-        specificParagraph = "As a Senior Developer with 7+ years of backend development experience using ASP.NET MVC and .NET Core (6/7/8), I have designed and delivered scalable products across E-Commerce, Healthcare, and HRMS systems. I have a proven record of optimizing query throughput and leading code reviews to ensure clean repository patterns.";
+        specificParagraph = "As a Backend Developer with 3+ years of backend development experience using ASP.NET MVC and .NET Core, I have designed and delivered scalable products across E-Commerce, Healthcare, and HRMS systems. I have a proven record of optimizing query throughput and leading code reviews to ensure clean repository patterns.";
     }
 
     return `Date: ${today}
-
+ 
 To the Hiring Team at ${job.companyName},
-
-I am writing to express my strong interest in the ${job.title} position currently open at ${job.companyName}. With over 7 years of professional experience as a Senior .NET Developer and Database Administrator, I am confident that my technical skills match your requirements.
-
+ 
+I am writing to express my strong interest in the ${job.title} position currently open at ${job.companyName}. With over 3 years of professional experience as a .NET Core Backend Developer, I am confident that my technical skills match your requirements.
+ 
 ${specificParagraph}
-
-I was recognized as the "Best Performer – Q4 2023" during my tenure at Technobrains IT Solution, reflecting my commitment to delivery excellence and quality backend engineering. I look forward to bringing my expertise in C#, REST API architecture, and database tuning to ${job.companyName}.
-
+ 
+I was recognized with the Employee Spotlight Award (May 2024) during my tenure at Technobrains Business Solutions, reflecting my commitment to delivery excellence and quality backend engineering. I look forward to bringing my expertise in C#, REST API architecture, and database tuning to ${job.companyName}.
+ 
 Thank you for your time and consideration. I welcome the opportunity to discuss my qualifications further.
-
+ 
 Sincerely,
-Amee Brahmbhatt
+Gaurav Maurya
 Ahmedabad, Gujarat, India`;
 }
 
@@ -1386,8 +1385,8 @@ function triggerBulkAutoApply() {
                 : `[INFO] Naukri.com login required. Injecting credentials for user: "${state.credentials.nkUser}"...`, type: "warning" },
             { text: `[INFO] OAuth validation checks passed. Session established successfully.`, type: "success" },
             { text: `[INFO] Parsing job parameters. Calculating compatibility: Fit Score = ${parsed.match}%`, type: "info" },
-            { text: `[INFO] Form-filling resume profile: Name="Amee Brahmbhatt", Phone="+91 81418 02828", Experience="7.2 Yrs"`, type: "info" },
-            { text: `[INFO] Injecting source: "F:\\Resume2026\\Amee_Brahmbhatt_ATS_Resume_Backend.pdf" (Size: 7.2 KB)`, type: "info" },
+            { text: `[INFO] Form-filling resume profile: Name="Gaurav Maurya", Phone="+91 84189 31740", Experience="3.0 Yrs"`, type: "info" },
+            { text: `[INFO] Injecting source: "F:\\Resume2026\\Gaurav_Maurya_ATS_Resume_Backend.pdf" (Size: 11.2 KB)`, type: "info" },
             { text: `[INFO] Auto-generating custom cover letter matching: "${parsed.role}"...`, type: "info" },
             { text: `[INFO] Clicking easy apply form submit elements...`, type: "info" },
             { text: `[SUCCESS] Reference submission logged: "${generateRandomHash()}"`, type: "success" },
@@ -1568,5 +1567,58 @@ function writeLog(type, text) {
 
     // Auto-scroll terminal
     logArea.scrollTop = logArea.scrollHeight;
+}
+
+// --- Security Lock overlay logic ---
+function setupSecurityLock() {
+    const lockScreen = document.getElementById("lock-screen");
+    if (!lockScreen) return;
+    const lockForm = document.getElementById("lock-form");
+    const lockPasswordInput = document.getElementById("lock-password");
+    const btnLockSession = document.getElementById("btn-lock-session");
+    const lockCard = lockScreen.querySelector(".lock-card");
+
+    // Check session authentication status
+    if (sessionStorage.getItem("apexapply_authenticated") === "true") {
+        lockScreen.classList.add("fade-out");
+    } else {
+        lockScreen.classList.remove("fade-out");
+    }
+
+    // Handle unlocking
+    if (lockForm) {
+        lockForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const password = lockPasswordInput.value;
+            if (password === "Eema@123") {
+                sessionStorage.setItem("apexapply_authenticated", "true");
+                lockScreen.classList.add("fade-out");
+                showToast("Access Granted. Welcome back, Gaurav!");
+            } else {
+                // Shake the card on error
+                lockCard.classList.add("shake");
+                showToast("Access Denied. Invalid passcode.");
+                lockPasswordInput.value = "";
+                lockPasswordInput.focus();
+                
+                setTimeout(() => {
+                    lockCard.classList.remove("shake");
+                }, 400);
+            }
+        });
+    }
+
+    // Handle sidebar locking
+    if (btnLockSession) {
+        btnLockSession.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            sessionStorage.removeItem("apexapply_authenticated");
+            showToast("Session locked successfully.");
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        });
+    }
 }
 

@@ -25,7 +25,7 @@ def make_styles():
         title=ParagraphStyle("Title", fontName="Helvetica", fontSize=10,
                               leading=13, textColor=BLUE, alignment=TA_CENTER, spaceAfter=3),
         contact=ParagraphStyle("Contact", fontName="Helvetica", fontSize=8.5,
-                                leading=12, textColor=GRAY, alignment=TA_CENTER, spaceAfter=5),
+                                padding=0, leading=12, textColor=GRAY, alignment=TA_CENTER, spaceAfter=5),
         section=ParagraphStyle("Section", fontName="Helvetica-Bold", fontSize=10,
                                 leading=14, textColor=BLUE, alignment=TA_LEFT,
                                 spaceBefore=7, spaceAfter=3, keepWithNext=1),
@@ -93,7 +93,7 @@ def skills_grid(skills):
         ("TOPPADDING",    (0, 0), (-1, -1), 2),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
         # Alternate row shading for readability
-        *[("BACKGROUND", (0, i), (-1, i), STRIP)
+        *[(("BACKGROUND", (0, i), (-1, i), STRIP))
           for i in range(0, len(rows), 2)],
     ]))
     return tbl
@@ -102,36 +102,34 @@ def skills_grid(skills):
 story = []
 
 # ── HEADER ─────────────────────────────────────────────────────────────────────
-story.append(Paragraph("AMEE BRAHMBHATT", S["name"]))
+story.append(Paragraph("GAURAV MAURYA", S["name"]))
 story.append(Paragraph(
-    "Senior .NET Developer  |  SQL Server DBA  |  Backend &amp; API Architecture",
+    ".NET Core Backend Developer  |  REST APIs  |  SQL Server  |  Microservices",
     S["title"]))
 story.append(Paragraph(
-    "Ahmedabad, Gujarat, India  &middot;  Brahmbhattami7@gmail.com  "
-    "&middot;  +91 81418 02828  &middot;  linkedin.com/in/brahmbhatt-ami-42615618b",
+    "Ahmedabad, Gujarat  &middot;  gauravmaurya919@gmail.com  "
+    "&middot;  +91 84189 31740  &middot;  linkedin.com/in/gaurav-maurya-830a071a6",
     S["contact"]))
 story += hr(NAVY, 1.2, 0, 5)
 
-
 # ── SUMMARY ────────────────────────────────────────────────────────────────────
 summary_p = Paragraph(
-    "Results-driven <b>Senior .NET Developer</b> and <b>SQL Server Database Administrator</b> "
-    "with <b>7+ years</b> of experience designing and optimizing enterprise-level backend systems "
-    "using Microsoft .NET technologies. Deep expertise in <b>ASP.NET MVC, .NET Core (.NET 6/7/8), "
-    "RESTful API development</b>, and SQL Server administration including backup, recovery, "
-    "performance tuning, and indexing. Proven track record delivering scalable HRMS, E-Commerce, "
-    "and Healthcare solutions. Experienced in DBA leadership, mentoring junior developers, "
-    "AI workflow integration, and Agile delivery.",
+    "Results-driven <b>Backend Developer</b> with <b>3+ years</b> of experience engineering high-performance "
+    "REST APIs and enterprise applications using <b>.NET Core, C#, ASP.NET MVC, and SQL Server</b>. "
+    "Delivered a 35–40% reduction in API response latency through LINQ optimization and Redis distributed "
+    "caching, and a 30%+ boost in SQL query performance via stored procedures and indexing strategies. "
+    "Architected server-side pagination supporting 10,000+ concurrent records with zero degradation. "
+    "Recognized with the Employee Spotlight Award (May 2024) for high-impact backend optimization. "
+    "Adept at clean architecture, SOLID principles, microservices design, and Agile delivery — seeking a "
+    "high-growth backend or full-stack .NET role (on-site or remote).",
     S["body"])
 story.append(KeepTogether(section("Professional Summary") + [summary_p]))
 
 # ── CORE COMPETENCIES ──────────────────────────────────────────────────────────
 competencies = (
-    "REST API Development &middot; SQL Server DBA &middot; Database Performance Tuning &middot; "
-    "Stored Procedures &amp; Indexing &middot; .NET Core / ASP.NET MVC &middot; Entity Framework &middot; "
-    "Clean Architecture &middot; SOLID Principles &middot; RBAC &middot; "
-    "Healthcare IT &middot; AI Workflow Integration &middot; Backup &amp; Recovery &middot; "
-    "Agile / Scrum &middot; Code Review &amp; Mentoring &middot; Production Support"
+    "NET Core / C# &middot; REST API Design &middot; SQL Server &middot; Redis Caching &middot; "
+    "Microservices &middot; Clean Architecture &middot; Entity Framework Core &middot; LINQ Optimization &middot; "
+    "Docker &middot; JWT / OAuth 2.0 &middot; Angular / React &middot; Agile / Scrum"
 )
 comp_tbl = Table([[Paragraph(competencies, S["comp"])]], colWidths=["100%"])
 comp_tbl.setStyle(TableStyle([
@@ -145,104 +143,97 @@ story.append(KeepTogether(section("Core Competencies") + [comp_tbl]))
 
 # ── TECHNICAL SKILLS (compact 2-col grid) ──────────────────────────────────────
 skills = [
-    ("Backend",        "ASP.NET MVC, ASP.NET Web API, .NET Framework, .NET Core (.NET 6/7/8), Entity Framework, LINQ, REST APIs, Dapper"),
-    ("Languages",      "C#, SQL, TypeScript"),
-    ("Database & DBA", "SQL Server, Stored Procedures, Functions, Triggers, Query Optimization, Execution Plans, Performance Tuning, Indexing, Backup & Recovery, DB Design & Normalization"),
-    ("Architecture",   "Clean Architecture, N-Tier, Repository Pattern, Dependency Injection, SOLID, Design Patterns, Microservices"),
-    ("Security",       "JWT Authentication, OAuth 2.0, Role-Based Access Control (RBAC), API Security, Data Encryption"),
-    ("Tools",          "Visual Studio, SSMS, Postman, Swagger / OpenAPI, Git, GitHub, Jira"),
-    ("Methodologies",  "Agile, Scrum, SDLC, Code Review, Unit Testing, Requirement Analysis, Production Deployments"),
-    ("AI Tools",       "GitHub Copilot, Cursor AI, ChatGPT, Claude AI, AI Workflow Integration"),
+    ("Core Backend",   "C#, .NET Core, ASP.NET MVC, ASP.NET Web API, Entity Framework Core, Dapper, Minimal APIs, gRPC, SignalR"),
+    ("Databases",      "SQL Server, Stored Procedures, Indexing, Query Optimization, Performance Tuning, Database Normalization"),
+    ("DevOps & Cloud", "Docker, Azure App Service, Azure SQL, CI/CD Pipelines, Git, GitHub, Bitbucket"),
+    ("Frontend",       "Angular, React, Next.js (SSR), HTML5, CSS3, Bootstrap, TypeScript, JavaScript"),
+    ("Architecture",   "Clean Architecture, Vertical Slice Architecture, N-Tier, Repository Pattern, SOLID, DI, Design Patterns"),
+    ("Security",       "JWT Authentication, OAuth 2.0, Role-Based Access Control (RBAC), API Security"),
+    ("Tools",          "Visual Studio, VS Code, Postman, Swagger/OpenAPI, SSMS, Jira, GitHub Copilot, Cursor"),
 ]
 story.append(KeepTogether(section("Technical Skills") + [skills_grid(skills)]))
 
 # ── WORK EXPERIENCE ────────────────────────────────────────────────────────────
-job_hdr = job_row("Senior Software Developer / Database Administrator",
-                  "Technobrains IT Solution", "Jun 2018 – Present")
+job_hdr = job_row("Backend Developer",
+                  "Technobrains Business Solutions", "May 2023 – Present")
 b1 = [
-    "Led end-to-end backend development of enterprise applications using ASP.NET MVC, "
-    ".NET Core (.NET 6/7/8), and SQL Server across HRMS, E-Commerce, and Healthcare domains.",
-    "Served as <b>Lead DBA</b> — managing full SQL Server lifecycle: database design, "
-    "backup strategies, disaster recovery, security hardening, and ongoing performance tuning.",
-    "Designed and implemented scalable <b>RESTful APIs</b> enabling seamless enterprise "
-    "integrations and third-party service connectivity.",
-    "Optimized complex SQL queries, stored procedures, and execution plans — achieving "
-    "measurable gains in query throughput and system responsiveness.",
-    "Implemented <b>RBAC</b> and <b>JWT-based authentication</b> across enterprise applications "
-    "to ensure secure, structured data access.",
-    "Integrated AI-powered tools and intelligent workflow automation into healthcare applications, "
-    "streamlining clinical processes and reducing manual intervention.",
-    "Mentored junior developers through code reviews and pair programming — improving team "
-    "code quality and delivery consistency.",
-    "Managed production deployments, monitoring, and incident resolution to maintain high "
-    "availability across mission-critical systems.",
+    "Engineered 15+ scalable REST APIs using .NET Core and C# for high-traffic production systems handling 10,000+ concurrent records — maintaining sub-200ms average response times across all critical endpoints.",
+    "Spearheaded LINQ query optimization and restructured data access layers, eliminating redundant DB calls and achieving a 35–40% reduction in API response latency across 8 performance-critical endpoints.",
+    "Architected optimized SQL stored procedures, functions, and indexing strategies in SQL Server, accelerating query execution by 30%+ and cutting report-generation time from ~12s to under 4s.",
+    "Implemented Redis distributed caching for high-frequency read operations, reducing database round-trips by ~60% and improving API throughput under peak load.",
+    "Designed server-side pagination and dynamic multi-filter APIs for datasets of 10,000+ records, enabling smooth UX with no front-end performance degradation.",
+    "Refactored a legacy monolithic codebase into clean architecture layers (Repository Pattern, DI, SOLID), improving testability and modularity — reducing onboarding time for new engineers by ~50%.",
+    "Resolved 20+ critical performance bottlenecks through profiling and query execution plan analysis, directly improving system reliability and end-user satisfaction.",
+    "Collaborated in Agile/Scrum sprints across planning, code review, and production deployments — consistently delivering features on schedule with zero post-deploy regressions.",
 ]
 b1_bullets = [bullet(b) for b in b1]
+
 # Keep section header + job title + first 2 bullets together
 story.append(KeepTogether(section("Work Experience") + [job_hdr] + b1_bullets[:2]))
 for b in b1_bullets[2:]:
     story.append(b)
 
+job_hdr2 = job_row("Software Development Intern",
+                   "Zobi Web Solutions", "Nov 2022 – Apr 2023")
+b2 = [
+    "Contributed to backend and frontend feature development using ASP.NET MVC and React, delivering enhancements across 4+ product modules within a fast-paced startup environment.",
+    "Built and tested REST API endpoints, resolved 30+ bugs, and improved UI components — gaining hands-on experience in Git branching, code review, and Agile delivery workflows."
+]
+b2_bullets = [bullet(b) for b in b2]
+story.append(KeepTogether([job_hdr2] + b2_bullets))
+
 # ── KEY PROJECTS ───────────────────────────────────────────────────────────────
 proj_blocks = [
-    ("TCW – Human Resource Management System (HRMS)",
-     "ASP.NET MVC · SQL Server · Entity Framework",
+    ("Hotel Booking Platform",
+     "ASP.NET Core · Next.js · SQL Server · Redis",
      [
-         "Developed enterprise-grade HRMS backend supporting recruitment workflows, "
-         "attendance tracking, payroll processing, and leave management for large organizations.",
-         "Architected MVC modules with clean separation of concerns; designed and optimized "
-         "stored procedures, indexes, and SQL queries for high-volume employee datasets.",
-         "Implemented RBAC, automated workflow validation, and approval chains ensuring "
-         "data integrity and department-level security compliance.",
+         "Architected REST APIs for real-time hotel search, availability management, and booking workflows — supporting 5,000+ simultaneous search queries with average response times under 300ms.",
+         "Built a Next.js frontend with SSR and dynamic routing, cutting initial page load by 40% and improving SEO discoverability for 200+ hotel listings.",
+         "Implemented multi-filter search (location, price, availability) backed by optimized SQL queries and Redis caching, reducing search latency by 50% vs. the initial implementation."
      ]),
-    ("GINA – E-Commerce Platform",
-     ".NET Core · SQL Server · REST APIs",
+    ("Human Resource Management System (HRMS)",
+     "ASP.NET MVC · React · SQL Server",
      [
-         "Built scalable backend modules for product catalog, inventory, and order processing "
-         "using .NET Core with clean architecture and dependency injection.",
-         "Designed RESTful APIs for payment gateway and logistics integrations; optimized "
-         "SQL Server indexing and execution plans for high-traffic performance.",
+         "Engineered backend modules for attendance, payroll, leave management, and task assignment — processing data for 500+ employees with RBAC enforced at every layer.",
+         "Optimized SQL stored procedures and indexes for large employee datasets, reducing average report query time by 65% (from 8s to under 3s).",
+         "Implemented automated validation and business logic workflows, eliminating manual data-entry errors and ensuring 100% data integrity across all HR processes."
      ]),
-    ("Healthcare Management Platform",
-     ".NET Core · SQL Server · AI Tools",
+    ("E-Commerce Platform",
+     ".NET Core · Angular · SQL Server",
      [
-         "Building enterprise healthcare backend responsible for full DBA lifecycle — schema "
-         "design, query optimization, backup strategies, and production administration.",
-         "Designed secure REST APIs (JWT + RBAC) for patient records, appointments, and "
-         "clinical reporting; integrated AI automation to reduce manual data entry.",
-         "Managing production deployments and incident resolution for a mission-critical "
-         "healthcare system with high-availability requirements.",
+         "Built backend services for order management, product catalog, inventory, and payment processing using clean architecture — handling 1,00,0 daily transactions.",
+         "Integrated a third-party payment gateway with idempotency checks, retry logic, and error recovery, achieving 99.9% transaction success rate in production.",
+         "Developed Angular frontend for product browsing, cart, and multi-step checkout with real-time order tracking via event-driven API workflows."
      ]),
+    ("Umbraco CMS Websites",
+     "Umbraco v7/v13 · .NET Core · C#",
+     [
+         "Developed and maintained CMS-driven websites for 5+ clients using Umbraco v7 and v13, enabling non-technical teams to manage dynamic content independently.",
+         "Integrated third-party APIs and applied caching strategies, improving content delivery speed by 35% and eliminating repeated DB fetches for static content."
+     ])
 ]
 
 for i, (title, tech, bullets) in enumerate(proj_blocks):
     hdr = proj_row(title, tech)
     blts = [bullet(b) for b in bullets]
     if i == 0:
-        # Keep section header + first project title + first project bullet together
         story.append(KeepTogether(section("Key Projects") + [hdr, blts[0]]))
         story.append(KeepTogether(blts[1:]))
     else:
-        # Keep each project block together
         story.append(KeepTogether([hdr] + blts))
     story.append(Spacer(1, 4))
 
 # ── EDUCATION ──────────────────────────────────────────────────────────────────
 edu_p = Paragraph(
-    "<b>Master of Science (M.Sc.) — Information Technology</b>"
-    "&nbsp; | &nbsp;Jun 2016 – May 2018",
+    "<b>B.Tech in Computer Science & Engineering</b> — Rungta College of Engineering and Technology, Bhilai"
+    "&nbsp; | &nbsp;GPA: 8.1 / 10 &nbsp; | &nbsp;2018 – 2022",
     S["body"])
 story.append(KeepTogether(section("Education") + [edu_p]))
 
 # ── ACHIEVEMENTS ───────────────────────────────────────────────────────────────
 achievements = [
-    "<b>Best Performer Award – Q4 2023 (Technobrains IT Solution):</b> Recognized for "
-    "consistently delivering high-quality solutions, leading performance optimization initiatives, "
-    "and measurable contributions across multiple enterprise domains.",
-    "Led healthcare platform DBA operations end-to-end — single-handedly managing database "
-    "design, optimization, and production administration for a mission-critical system.",
-    "Mentored multiple junior developers, raising team-wide code quality standards and "
-    "accelerating onboarding timelines.",
+    "<b>Employee Spotlight Award – Technobrains Business Solutions (May 2024):</b> Recognized for consistent high performance, measurable backend optimization contributions, and proactive ownership of performance-critical API and database improvements.",
+    "Delivered 35–40% API latency reduction and 30%+ SQL performance improvement within Year 1, directly contributing to better end-user experience and system reliability."
 ]
 ach_paragraphs = [Paragraph(a, S["body"]) for a in achievements]
 story.append(KeepTogether(section("Achievements & Recognition") + [ach_paragraphs[0]]))
@@ -250,7 +241,7 @@ for ap in ach_paragraphs[1:]:
     story.append(ap)
 
 # ── Output ─────────────────────────────────────────────────────────────────────
-output = r"F:\Resume2026\Amee_Brahmbhatt_ATS_Resume_Backend.pdf"
+output = r"F:\Resume2026\Gaurav_Maurya_ATS_Resume_Backend.pdf"
 doc = SimpleDocTemplate(
     output,
     pagesize=letter,
