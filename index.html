@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ApexApply .NET - Premium Job Application and Tracker Dashboard for Senior .NET Developers and SQL DBAs.">
+    <title>ApexApply .NET | Tailored Job Portal & Tracker</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">ApexApply</span>
+                    <span class="logo-subtitle">.NET & DBA Edition</span>
+                </div>
+            </div>
+
+            <!-- Profile Overview Quick Card -->
+            <div class="profile-card">
+                <div class="profile-avatar">AB</div>
+                <div class="profile-info">
+                    <h3 class="profile-name">Amee Brahmbhatt</h3>
+                    <p class="profile-title">Senior .NET / Lead DBA</p>
+                    <span class="profile-badge">7+ Yrs Exp</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="dashboard" id="btn-tab-dashboard">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-tab="jobs" id="btn-tab-jobs">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span>Job Openings</span>
+                    <span class="badge-count" id="jobs-count-badge">0</span>
+                </button>
+                <button class="nav-item" data-tab="companies" id="btn-tab-companies">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 21H2V3h10v18M12 8h4v3h-4zM12 14h4v3h-4zM6 8h4v3H6zM6 14h4v3H6z"></path></svg>
+                    <span>Hiring Companies</span>
+                </button>
+                <button class="nav-item" data-tab="tracker" id="btn-tab-tracker">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                    <span>Application Tracker</span>
+                </button>
+                <button class="nav-item" data-tab="bulk-apply" id="btn-tab-bulk-apply">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <span>Bulk Auto-Apply</span>
+                    <span class="badge-accent" style="margin-left: 6px; font-size: 8px; padding: 1px 4px; border-radius: 4px; background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.3); color: var(--color-accent); font-weight: 700;">PRO</span>
+                </button>
+                <button class="nav-item" data-tab="profile" id="btn-tab-profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Resume Profile</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="copyright">&copy; 2026 ApexApply</p>
+                <p class="build-version">v1.2.0 • Pro Active</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header bar -->
+            <header class="top-bar">
+                <div class="welcome-msg">
+                    <h1 id="page-title">Dashboard Overview</h1>
+                    <p id="page-subtitle">Welcome back, Amee. Here's your personalized .NET & DBA job recommendation board.</p>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-mini">
+                        <span class="stat-mini-label">Total Listings</span>
+                        <span class="stat-mini-val" id="stat-total-jobs">12</span>
+                    </div>
+                    <div class="stat-mini">
+                        <span class="stat-mini-label">Applied</span>
+                        <span class="stat-mini-val" id="stat-applied-jobs">0</span>
+                    </div>
+                    <div class="stat-mini highlighted">
+                        <span class="stat-mini-label">Interviews</span>
+                        <span class="stat-mini-val text-cyan" id="stat-interviews">0</span>
+                    </div>
+                    <div class="stat-mini success">
+                        <span class="stat-mini-label">Offers</span>
+                        <span class="stat-mini-val text-emerald" id="stat-offers">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content Section -->
+            <section id="tab-dashboard" class="tab-content active-tab">
+                <div class="dashboard-grid">
+                    <!-- Column 1: Fit Analysis -->
+                    <div class="grid-card fit-analysis-card">
+                        <div class="card-header">
+                            <h2>Profile Compatibility Profile</h2>
+                            <span class="badge-accent">AI-Powered</span>
+                        </div>
+                        <div class="fit-gauge-container">
+                            <div class="circular-progress">
+                                <div class="value-container" id="average-fit-score">95%</div>
+                            </div>
+                            <div class="gauge-details">
+                                <h3>Excellent Fit Match</h3>
+                                <p>Your skillset perfectly aligns with top tier enterprise backend & DBA roles. Your strongest domains are:</p>
+                                <ul class="aligned-skill-pills">
+                                    <li>ASP.NET Core (8.0)</li>
+                                    <li>SQL Server Administration</li>
+                                    <li>DB Performance Tuning</li>
+                                    <li>REST API Design</li>
+                                    <li>Clean Architecture</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr class="card-divider">
+                        <div class="recommendation-insights">
+                            <h4 class="insight-title">🎯 DBA Lead Insight</h4>
+                            <p>Companies in Ahmedabad like <b>Simform</b>, <b>TatvaSoft</b>, and <b>Technobrains</b> are actively looking for Senior developers who can run DBA lifecycle management, indexing, and store proc optimization.</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Quick Action / Resume Metrics -->
+                    <div class="grid-card quick-actions-card">
+                        <h2>Quick Dashboard Actions</h2>
+                        <div class="action-buttons-grid">
+                            <button class="action-btn" id="btn-quick-view-jobs">
+                                <span class="btn-icon bg-blue">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                </span>
+                                <span class="btn-labels">
+                                    <span class="btn-title">Browse Jobs Feed</span>
+                                    <span class="btn-desc">12 Tailored job match postings</span>
+                                </span>
+                            </button>
+
+                            <button class="action-btn" id="btn-quick-view-tracker">
+                                <span class="btn-icon bg-cyan">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                </span>
+                                <span class="btn-labels">
+                                    <span class="btn-title">Application Tracker</span>
+                                    <span class="btn-desc">Check Kanban pipelines</span>
+                                </span>
+                            </button>
+
+                            <button class="action-btn" id="btn-export-cv">
+                                <span class="btn-icon bg-emerald">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                </span>
+                                <span class="btn-labels">
+                                    <span class="btn-title">Download Resume PDF</span>
+                                    <span class="btn-desc">Official ATS .NET/DBA resume</span>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="recent-matches-widget">
+                            <h3>Hiring Status Snapshot</h3>
+                            <div class="status-list" id="dashboard-status-list">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Companies Ribbon -->
+                <div class="featured-companies-container">
+                    <div class="section-title-row">
+                        <h2>Top Hiring Companies for Your Profile</h2>
+                        <button class="text-link" id="link-view-all-companies">View All Companies &rarr;</button>
+                    </div>
+                    <div class="company-grid" id="dashboard-companies-grid">
+                        <!-- Placed dynamically via app.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jobs List & Detail Section -->
+            <section id="tab-jobs" class="tab-content">
+                <div class="jobs-layout-container">
+                    <!-- Filters Sidebar -->
+                    <div class="filters-sidebar">
+                        <div class="filter-header">
+                            <h3>Filter Matching Jobs</h3>
+                            <button class="clear-filters-btn" id="btn-clear-filters">Reset</button>
+                        </div>
+                        <hr class="card-divider">
+                        <div class="filter-group">
+                            <label for="search-job">Job Title / Keywords</label>
+                            <div class="search-input-wrapper">
+                                <input type="text" id="search-job" placeholder="e.g. .NET Core, SQL DBA...">
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-location">Job Location</label>
+                            <select id="filter-location">
+                                <option value="all">All Locations</option>
+                                <option value="remote">Remote (Global/India)</option>
+                                <option value="ahmedabad">Ahmedabad, India</option>
+                                <option value="pune">Pune, India</option>
+                                <option value="bangalore">Bangalore, India</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-role">Role Category</label>
+                            <select id="filter-role">
+                                <option value="all">All Specialties</option>
+                                <option value="dotnet">Senior .NET Developer</option>
+                                <option value="dba">SQL Server DBA</option>
+                                <option value="architect">Backend / API Architect</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Minimum Match Score</label>
+                            <div class="range-wrapper">
+                                <input type="range" id="filter-match" min="80" max="98" value="85" step="1">
+                                <span class="range-value" id="match-val-display">85% Match</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jobs Listings Feed -->
+                    <div class="jobs-feed-list" id="jobs-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Job Detail view -->
+                    <div class="job-detail-panel" id="job-detail-card">
+                        <div class="detail-empty-state">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="floating-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            <h3>Select a job opening</h3>
+                            <p>Click on any job card in the list to view comprehensive match reports, responsibilities, salary ranges, and request a generated cover letter.</p>
+                        </div>
+                        <div class="detail-full-state hidden" id="job-detail-content">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hiring Companies Section -->
+            <section id="tab-companies" class="tab-content">
+                <div class="companies-intro">
+                    <h2>Preferred Companies</h2>
+                    <p>These companies are selected based on active job openings, technology alignment (.NET/SQL stack), and location preference in Ahmedabad or remote-friendly models in India.</p>
+                </div>
+                <div class="company-extended-list" id="companies-full-grid">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Application Tracker (Kanban) Section -->
+            <section id="tab-tracker" class="tab-content">
+                <div class="tracker-intro">
+                    <div>
+                        <h2>Interactive Application Board</h2>
+                        <p>Track your applications from bookmark to official offer. Cards update statistics counters dynamically.</p>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" id="btn-reset-tracker">Reset Board Data</button>
+                </div>
+                <div class="kanban-board">
+                    <!-- Bookmarked -->
+                    <div class="kanban-column" id="col-bookmarked">
+                        <div class="column-header">
+                            <span class="column-dot bg-gray"></span>
+                            <h3>Bookmarked</h3>
+                            <span class="column-badge" id="badge-bookmarked">0</span>
+                        </div>
+                        <div class="kanban-cards-container" data-status="bookmarked">
+                            <!-- Cards inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Applied -->
+                    <div class="kanban-column" id="col-applied">
+                        <div class="column-header">
+                            <span class="column-dot bg-blue"></span>
+                            <h3>Applied</h3>
+                            <span class="column-badge" id="badge-applied">0</span>
+                        </div>
+                        <div class="kanban-cards-container" data-status="applied">
+                            <!-- Cards inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Interviewing -->
+                    <div class="kanban-column" id="col-interviewing">
+                        <div class="column-header">
+                            <span class="column-dot bg-cyan"></span>
+                            <h3>Interviewing</h3>
+                            <span class="column-badge" id="badge-interviewing">0</span>
+                        </div>
+                        <div class="kanban-cards-container" data-status="interviewing">
+                            <!-- Cards inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Offer Received -->
+                    <div class="kanban-column" id="col-offer">
+                        <div class="column-header">
+                            <span class="column-dot bg-emerald"></span>
+                            <h3>Offer Received</h3>
+                            <span class="column-badge" id="badge-offer">0</span>
+                        </div>
+                        <div class="kanban-cards-container" data-status="offer">
+                            <!-- Cards inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Rejected -->
+                    <div class="kanban-column" id="col-rejected">
+                        <div class="column-header">
+                            <span class="column-dot bg-rose"></span>
+                            <h3>Rejected</h3>
+                            <span class="column-badge" id="badge-rejected">0</span>
+                        </div>
+                        <div class="kanban-cards-container" data-status="rejected">
+                            <!-- Cards inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bulk Auto-Apply Section -->
+            <section id="tab-bulk-apply" class="tab-content">
+                <div class="bulk-layout-container">
+                    <div class="bulk-left-panel">
+                        <!-- Credentials Vault Card -->
+                        <div class="grid-card credentials-vault-card" style="margin-bottom: 24px;">
+                            <div class="card-header" style="margin-bottom: 16px;">
+                                <h2>Secure Credentials Vault</h2>
+                                <span class="badge-accent" style="border-color: rgba(16, 185, 129, 0.3); color: var(--color-emerald); background: rgba(16, 185, 129, 0.1);">Simulated Crypt-Vault</span>
+                            </div>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
+                                Setup accounts to authenticate and apply on your behalf. Details are encrypted locally in your sandbox.
+                            </p>
+                            
+                            <form id="vault-form">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                                    <!-- LinkedIn Vault -->
+                                    <div class="vault-account-box" style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #0077b5;">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                            <span>LinkedIn Settings</span>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label style="font-size: 10px;">Username / Email</label>
+                                            <input type="text" id="vault-li-user" value="Brahmbhattami7@gmail.com" required style="padding: 6px 10px; font-size:12px;">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 0;">
+                                            <label style="font-size: 10px;">Password</label>
+                                            <input type="password" id="vault-li-pass" value="•••••••••••••" required style="padding: 6px 10px; font-size:12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 8px; color: white; width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Naukri Vault -->
+                                    <div class="vault-account-box" style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #092e62;">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="#092e62"/><text x="4" y="16" fill="white" font-size="12" font-family="sans-serif" font-weight="900">N</text></svg>
+                                            <span>Naukri Settings</span>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label style="font-size: 10px;">Username / Email</label>
+                                            <input type="text" id="vault-nk-user" value="Brahmbhattami7@gmail.com" required style="padding: 6px 10px; font-size:12px;">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 0;">
+                                            <label style="font-size: 10px;">Password</label>
+                                            <input type="password" id="vault-nk-pass" value="•••••••••••••" required style="padding: 6px 10px; font-size:12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 8px; color: white; width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary btn-sm" id="btn-save-vault" style="width: 100%;">Update Secure Vault Keys</button>
+                            </form>
+                        </div>
+
+                        <!-- URL Inputs Card -->
+                        <div class="grid-card">
+                            <h2>Bulk Direct URL List</h2>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
+                                Paste target job URLs (one per line). The automation engine will classify links and inject relevant login keys.
+                            </p>
+                            <div class="form-group">
+                                <textarea id="bulk-urls-input" rows="8" placeholder="Paste job links here..." style="width: 100%; background: rgba(5,7,12,0.6); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; color: white; font-family: monospace; font-size: 12px; resize: vertical; outline: none; transition: var(--transition-smooth);"></textarea>
+                            </div>
+                            <div class="bulk-controls" style="display: flex; gap: 12px; margin-top: 14px;">
+                                <button class="btn btn-primary" id="btn-start-bulk-apply" style="flex: 1;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    Initialize Auto-Apply Batch
+                                </button>
+                                <button class="btn btn-secondary" id="btn-clear-urls">Reset List</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terminal console display -->
+                    <div class="bulk-right-panel">
+                        <div class="terminal-container">
+                            <div class="terminal-header-bar">
+                                <div class="terminal-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="terminal-title">automation_webdriver.js console</span>
+                                <span class="terminal-status" id="terminal-pulse">IDLE</span>
+                            </div>
+                            <div class="terminal-body-area" id="terminal-log-output">
+                                <div class="term-line system">[SYSTEM] WebDriver automation console initialized. Ready to execute job batch.</div>
+                                <div class="term-line help">Type or paste URLs on the left, then click "Initialize Auto-Apply Batch" to run Puppeteer simulation.</div>
+                            </div>
+                            <div class="terminal-progress-row">
+                                <span class="progress-lbl">Batch Complete:</span>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fg" id="bulk-progress-bar" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-pct" id="bulk-progress-pct">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resume Profile Section -->
+            <section id="tab-profile" class="tab-content">
+                <div class="profile-layout">
+                    <!-- Profile details sidebar -->
+                    <div class="profile-left-bar">
+                        <div class="profile-main-detail">
+                            <div class="large-avatar">AB</div>
+                            <h2>Amee Brahmbhatt</h2>
+                            <p class="prof-tag">Senior Software Developer / Lead DBA</p>
+                            <p class="prof-location">Ahmedabad, Gujarat, India</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="prof-contact-info">
+                                <div class="contact-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                    <span>Brahmbhattami7@gmail.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <span>+91 81418 02828</span>
+                                </div>
+                                <div class="contact-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <span>linkedin.com/in/brahmbhatt-ami-42615618b</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievements block -->
+                        <div class="profile-left-widget">
+                            <h3>Achievements</h3>
+                            <ul class="achievements-bullet-list">
+                                <li><strong>Best Performer Award (Q4 2023):</strong> Recognized at Technobrains IT Solution for performance tuning and high-quality deliveries.</li>
+                                <li><strong>Lead DBA Ownership:</strong> Managed the entire database infrastructure and design for critical healthcare platforms.</li>
+                                <li><strong>Team Mentorship:</strong> Mentored junior developers, establishing high standards for clean architecture.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Profile detail body -->
+                    <div class="profile-right-body">
+                        <!-- Summary -->
+                        <div class="profile-section">
+                            <h2>Professional Summary</h2>
+                            <p>Results-driven Senior .NET Developer and SQL Server Database Administrator with 7+ years of experience designing and optimizing enterprise-level backend systems using Microsoft .NET technologies. Deep expertise in ASP.NET MVC, .NET Core (.NET 6/7/8), RESTful API development, and SQL Server administration including backup, recovery, performance tuning, and indexing. Proven track record delivering scalable HRMS, E-Commerce, and Healthcare solutions. Experienced in DBA leadership, mentoring junior developers, AI workflow integration, and Agile delivery.</p>
+                        </div>
+
+                        <!-- Technical Skills Details -->
+                        <div class="profile-section">
+                            <h2>Technical Skills Inventory</h2>
+                            <div class="skills-detail-grid" id="profile-skills-grid">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Work Experience -->
+                        <div class="profile-section">
+                            <h2>Work Experience</h2>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-badge"></div>
+                                    <div class="timeline-header">
+                                        <h3>Senior Software Developer / Lead DBA</h3>
+                                        <span class="timeline-company">Technobrains IT Solution</span>
+                                        <span class="timeline-date">Jun 2018 - Present</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Led end-to-end backend development of enterprise applications using ASP.NET MVC, .NET Core (.NET 6/7/8), and SQL Server across HRMS, E-Commerce, and Healthcare domains.</p>
+                                        <ul>
+                                            <li>Served as Lead DBA — managing full SQL Server lifecycle: database design, backup strategies, disaster recovery, security hardening, and performance tuning.</li>
+                                            <li>Designed and implemented scalable RESTful APIs enabling seamless enterprise integrations and third-party connectivity.</li>
+                                            <li>Optimized complex SQL queries, stored procedures, and execution plans, achieving measurable performance gains in database responsive speeds.</li>
+                                            <li>Implemented RBAC and JWT-based authentication across enterprise applications to ensure security compliance.</li>
+                                            <li>Integrated AI-powered tools and workflow automation into healthcare applications, reducing manual data entry and clinical process friction.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Projects -->
+                        <div class="profile-section">
+                            <h2>Key Projects</h2>
+                            <div class="projects-detail-list">
+                                <div class="project-detail-card">
+                                    <div class="proj-detail-header">
+                                        <h3>TCW - Human Resource Management System (HRMS)</h3>
+                                        <span class="proj-tech">ASP.NET MVC · SQL Server · Entity Framework</span>
+                                    </div>
+                                    <p>Developed enterprise-grade HRMS backend supporting recruitment workflows, attendance tracking, payroll processing, and leave management for large organizations. Built clean architecture separation of MVC concerns, optimized Stored Procedures and Indexing, and implemented role-based workflows.</p>
+                                </div>
+                                <div class="project-detail-card">
+                                    <div class="proj-detail-header">
+                                        <h3>GINA - E-Commerce Platform</h3>
+                                        <span class="proj-tech">.NET Core · SQL Server · REST APIs</span>
+                                    </div>
+                                    <p>Built scalable backend modules for product catalog, inventory, and order processing using .NET Core with Clean Architecture and dependency injection. Integrated payment gateways and logistics services via optimized REST APIs.</p>
+                                </div>
+                                <div class="project-detail-card">
+                                    <div class="proj-detail-header">
+                                        <h3>Healthcare Management Platform</h3>
+                                        <span class="proj-tech">.NET Core · SQL Server · AI Tools</span>
+                                    </div>
+                                    <p>Created enterprise healthcare backend with full DBA lifecycle ownership, schema design, and production DBA administration. Developed secure REST APIs (JWT + RBAC) and integrated AI automation tools to reduce medical data-entry tasks.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="profile-section">
+                            <h2>Education</h2>
+                            <div class="edu-card">
+                                <div class="edu-card-header">
+                                    <h3>Master of Science (M.Sc.) — Information Technology</h3>
+                                    <span class="timeline-date">Jun 2016 – May 2018</span>
+                                </div>
+                                <p>Gujarat, India • Focus on advanced database administration, backend software architecture, and software design principles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Application Modal Overlay -->
+    <div class="modal-overlay hidden" id="apply-modal">
+        <div class="modal-card">
+            <button class="close-modal-btn" id="btn-close-modal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <span class="modal-pre">Apply for Position</span>
+                    <h2 id="modal-job-title">Senior .NET Developer</h2>
+                    <p id="modal-company-title">Technobrains IT Solution</p>
+                    
+                    <div class="modal-match-box">
+                        <div class="small-gauge" id="modal-fit-gauge">96%</div>
+                        <div>
+                            <h4>Top Match Rating</h4>
+                            <p id="modal-match-reason">Your SQL DBA optimization and .NET Core skills are highly demanded for this role.</p>
+                        </div>
+                    </div>
+
+                    <div class="cover-letter-area">
+                        <div class="cover-letter-header">
+                            <label for="cover-letter-text">Customized AI Cover Letter</label>
+                            <button class="regen-btn" id="btn-regen-letter">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                                Regenerate
+                            </button>
+                        </div>
+                        <textarea id="cover-letter-text" rows="8"></textarea>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <h3>Confirm Application Details</h3>
+                    <form id="apply-form">
+                        <div class="form-group">
+                            <label for="apply-name">Full Name</label>
+                            <input type="text" id="apply-name" value="Amee Brahmbhatt" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-email">Email Address</label>
+                            <input type="email" id="apply-email" value="Brahmbhattami7@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-phone">Phone Number</label>
+                            <input type="text" id="apply-phone" value="+91 81418 02828" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-resume">Resume Attached</label>
+                            <div class="simulated-file-input">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span class="file-name">Amee_Brahmbhatt_ATS_Resume_Backend.pdf</span>
+                                <span class="file-size">(7.2 KB)</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="btn-submit-apply">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert / Toast Popup -->
+    <div class="toast hidden" id="toast-notification">
+        <span id="toast-message">Application submitted successfully!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
