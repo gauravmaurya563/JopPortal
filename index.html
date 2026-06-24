@@ -349,6 +349,15 @@
                             <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
                                 Setup accounts to authenticate and apply on your behalf. Details are encrypted locally in your sandbox.
                             </p>
+
+                            <!-- Mode Selector Segmented Control -->
+                            <div class="mode-selector-wrapper" style="margin-bottom: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
+                                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 8px; letter-spacing: 0.5px;">Automation Security Mode</span>
+                                <div class="segmented-control" style="display: flex; gap: 8px; background: rgba(5,7,12,0.6); padding: 4px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                    <button type="button" class="segmented-btn active" id="btn-mode-auto" data-mode="automated" style="flex: 1; background: var(--color-primary); border: none; outline: none; color: white; padding: 6px 12px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth);">Fully Automated</button>
+                                    <button type="button" class="segmented-btn" id="btn-mode-manual" data-mode="manual" style="flex: 1; background: transparent; border: none; outline: none; color: var(--text-secondary); padding: 6px 12px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth);">Manual Intercept</button>
+                                </div>
+                            </div>
                             
                             <form id="vault-form">
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
@@ -423,6 +432,22 @@
                                 <div class="term-line system">[SYSTEM] WebDriver automation console initialized. Ready to execute job batch.</div>
                                 <div class="term-line help">Type or paste URLs on the left, then click "Initialize Auto-Apply Batch" to run Puppeteer simulation.</div>
                             </div>
+
+                            <!-- Credentials Intercept Overlay -->
+                            <div class="terminal-intercept-overlay hidden" id="terminal-intercept">
+                                <div class="intercept-card">
+                                    <div class="intercept-hdr">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                        <span>Credentials Verification Intercept</span>
+                                    </div>
+                                    <p class="intercept-desc">Confirm login credentials for <span id="intercept-platform-name">LinkedIn</span> (<span id="intercept-email-display">Brahmbhattami7@gmail.com</span>):</p>
+                                    <div class="intercept-input-row">
+                                        <input type="password" id="intercept-password" placeholder="Enter platform password to verify...">
+                                        <button type="button" class="btn btn-primary btn-sm" id="btn-intercept-submit">Verify &amp; Resume</button>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="terminal-progress-row">
                                 <span class="progress-lbl">Batch Complete:</span>
                                 <div class="progress-bar-bg">

@@ -463,6 +463,9 @@ function loadState() {
                 nkPass: "•••••••••••••"
             };
         }
+        if (!state.automationMode) {
+            state.automationMode = "automated";
+        }
     } else {
         state.applications = [...initialApplications];
         state.selectedJobId = null;
@@ -472,6 +475,7 @@ function loadState() {
             nkUser: "Brahmbhattami7@gmail.com",
             nkPass: "•••••••••••••"
         };
+        state.automationMode = "automated";
         saveState();
     }
 }
@@ -1264,6 +1268,49 @@ function setupBulkApply() {
     document.getElementById("btn-start-bulk-apply").addEventListener("click", () => {
         triggerBulkAutoApply();
     });
+
+    // Toggle Button Events for Automation Mode
+    const btnAuto = document.getElementById("btn-mode-auto");
+    const btnManual = document.getElementById("btn-mode-manual");
+
+    function updateModeUI() {
+        if (state.automationMode === "manual") {
+            btnAuto.classList.remove("active");
+            btnAuto.style.background = "transparent";
+            btnAuto.style.color = "var(--text-secondary)";
+            
+            btnManual.classList.add("active");
+            btnManual.style.background = "var(--color-primary)";
+            btnManual.style.color = "white";
+        } else {
+            btnManual.classList.remove("active");
+            btnManual.style.background = "transparent";
+            btnManual.style.color = "var(--text-secondary)";
+            
+            btnAuto.classList.add("active");
+            btnAuto.style.background = "var(--color-primary)";
+            btnAuto.style.color = "white";
+        }
+    }
+
+    if (!state.automationMode) {
+        state.automationMode = "automated";
+    }
+    updateModeUI();
+
+    btnAuto.addEventListener("click", () => {
+        state.automationMode = "automated";
+        saveState();
+        updateModeUI();
+        showToast("Switched to Fully Automated mode.");
+    });
+
+    btnManual.addEventListener("click", () => {
+        state.automationMode = "manual";
+        saveState();
+        updateModeUI();
+        showToast("Switched to Manual Credentials Verification mode.");
+    });
 }
 
 function triggerBulkAutoApply() {
@@ -1372,6 +1419,59 @@ function triggerBulkAutoApply() {
                 // Run next job
                 setTimeout(executeNext, 1200);
                 return;
+            }
+
+            // Check if manual intercept mode is enabled and we are at the login step
+            if (state.automationMode === "manual" && step === 3) {
+                // Log the credentials warning step first
+                writeLog(steps[step].type, steps[step].text);
+                
+                // Show manual intercept panel
+                const interceptPanel = document.getElementById("terminal-intercept");
+                const platformName = document.getElementById("intercept-platform-name");
+                const emailDisplay = document.getElementById("intercept-email-display");
+                const passInput = document.getElementById("intercept-password");
+                const submitBtn = document.getElementById("btn-intercept-submit");
+
+                platformName.textContent = parsed.platform === "linkedin" ? "LinkedIn" : "Naukri";
+                emailDisplay.textContent = parsed.platform === "linkedin" ? state.credentials.liUser : state.credentials.nkUser;
+                passInput.value = "";
+                
+                interceptPanel.classList.remove("hidden");
+                writeLog("warning", `[INTERCEPTED] Simulation paused. Awaiting credential validation...`);
+
+                // Temporary inline submit handler
+                function onVerifySubmit() {
+                    const passVal = passInput.value.trim();
+                    if (!passVal) {
+                        alert("Please confirm your password to proceed!");
+                        return;
+                    }
+                    
+                    interceptPanel.classList.add("hidden");
+                    writeLog("success", `[SYSTEM] Manual credential keys verified successfully.`);
+                    
+                    // Unbind listener so it doesn't double-fire next time
+                    newSubmitBtn.removeEventListener("click", onVerifySubmit);
+                    
+                    // Move to next step and resume
+                    step++;
+                    setTimeout(runStep, 450);
+                }
+
+                // Make sure to unbind any older listener first to be safe
+                const newSubmitBtn = submitBtn.cloneNode(true);
+                submitBtn.parentNode.replaceChild(newSubmitBtn, submitBtn);
+                newSubmitBtn.addEventListener("click", onVerifySubmit);
+                
+                // Support pressing Enter key
+                passInput.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter") {
+                        newSubmitBtn.click();
+                    }
+                });
+
+                return; // PAUSE THE RUNNER
             }
 
             writeLog(steps[step].type, steps[step].text);

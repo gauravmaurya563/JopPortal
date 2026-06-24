@@ -2156,3 +2156,105 @@ body {
     text-align: right;
 }
 
+/* --- Credentials Intercept Overlay inside Terminal --- */
+.terminal-intercept-overlay {
+    background: rgba(10, 13, 22, 0.95);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.intercept-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.intercept-hdr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--color-warning);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.intercept-hdr svg {
+    animation: pulseWarning 1.5s infinite;
+}
+
+@keyframes pulseWarning {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.intercept-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+}
+
+.intercept-desc span {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.intercept-input-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.intercept-input-row input {
+    flex: 1;
+    background: rgba(5, 7, 12, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 13px;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.intercept-input-row input:focus {
+    border-color: var(--color-warning);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.15);
+}
+
+.intercept-input-row button {
+    background: var(--color-warning);
+    border-color: var(--color-warning);
+    color: #05070c;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 12px;
+    border: none;
+    transition: var(--transition-smooth);
+}
+
+.intercept-input-row button:hover {
+    background: #f59e0b;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+    color: #05070c;
+}
+
+.intercept-input-row button:active {
+    transform: scale(0.98);
+}
+
