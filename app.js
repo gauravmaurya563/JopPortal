@@ -25,6 +25,9 @@ const resumeData = {
     ]
 };
 
+// --- Current Employer (cannot apply here) ---
+const CURRENT_EMPLOYER_ID = "technobrains";
+
 // --- Target Companies Directory ---
 const companiesData = [
     {
@@ -887,6 +890,15 @@ function selectJob(jobId) {
 }
 
 function renderApplicationButton(job) {
+    // Block applying to the current employer
+    if (job.companyId === CURRENT_EMPLOYER_ID) {
+        return `
+            <button class="btn btn-secondary" style="border-color: var(--color-rose); color: var(--color-rose); cursor: not-allowed; opacity: 0.75;" disabled title="You cannot apply to your current employer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+                Current Employer – Cannot Apply
+            </button>
+        `;
+    }
     const existing = state.applications.find(a => a.jobId === job.id);
     if (existing) {
         return `
@@ -1123,6 +1135,11 @@ function setupModalEvents() {
 }
 
 function openApplyModal(job) {
+    // Safety guard: never open modal for current employer
+    if (job.companyId === CURRENT_EMPLOYER_ID) {
+        showToast("⚠️ You cannot apply to your current employer (Technobrains).");
+        return;
+    }
     activeModalJob = job;
     modalJobTitle.textContent = job.title;
     modalCompanyTitle.textContent = job.companyName;
@@ -1181,6 +1198,12 @@ Ahmedabad, Gujarat, India`;
 function handleApplySubmit(e) {
     e.preventDefault();
     if (!activeModalJob) return;
+    // Safety guard: never submit application to current employer
+    if (activeModalJob.companyId === CURRENT_EMPLOYER_ID) {
+        showToast("⚠️ You cannot apply to your current employer (Technobrains).");
+        closeApplyModal();
+        return;
+    }
 
     // Check if they already have a bookmark, update its status
     const existingIndex = state.applications.findIndex(a => a.jobId === activeModalJob.id);
