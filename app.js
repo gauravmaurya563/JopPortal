@@ -628,6 +628,10 @@ function selectJob(jobId) {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><rect x="1" y="1" width="22" height="22" rx="4"/><text x="5" y="17" fill="white" font-size="14" font-family="sans-serif" font-weight="900">N</text></svg>
                 Search on Naukri
             </a>
+            <a href="${job.applyLinks.indeed || 'https://in.indeed.com/jobs?q=' + encodeURIComponent(job.title + ' ' + job.companyName)}" target="_blank" rel="noopener" class="btn btn-indeed">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><rect x="1" y="1" width="22" height="22" rx="4" fill="#2164f3"/><text x="6" y="16" fill="white" font-size="14" font-family="sans-serif" font-weight="900">i</text></svg>
+                Search on Indeed
+            </a>
             <button class="btn btn-secondary" id="btn-bookmark-job">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 Bookmark
@@ -1018,23 +1022,31 @@ function setupBulkApply() {
     const liPass = document.getElementById("vault-li-pass");
     const nkUser = document.getElementById("vault-nk-user");
     const nkPass = document.getElementById("vault-nk-pass");
+    const idUser = document.getElementById("vault-id-user");
+    const idPass = document.getElementById("vault-id-pass");
     const urlsInput = document.getElementById("bulk-urls-input");
 
     if (state.credentials && liUser) {
         liUser.value = state.credentials.liUser || "";
         nkUser.value = state.credentials.nkUser || "";
+        if (idUser) idUser.value = state.credentials.idUser || "";
     }
 
     if (urlsInput && !urlsInput.value.trim()) {
         urlsInput.value = [
             "https://in.linkedin.com/jobs/view/senior-dotnet-developer-at-tatvasoft-98314",
             "https://www.naukri.com/job-listings-sql-server-dba-lead-capgemini-pune-3-to-8-years",
+            "https://in.indeed.com/viewjob?jk=8422a91283&q=senior+dotnet+developer",
             "https://in.linkedin.com/jobs/view/backend-api-architect-at-cognizant-8422"
         ].join("\n");
     }
 
     document.getElementById("btn-save-vault")?.addEventListener("click", () => {
-        state.credentials = { liUser: liUser?.value || "", liPass: liPass?.value || "", nkUser: nkUser?.value || "", nkPass: nkPass?.value || "" };
+        state.credentials = { 
+            liUser: liUser?.value || "", liPass: liPass?.value || "", 
+            nkUser: nkUser?.value || "", nkPass: nkPass?.value || "",
+            idUser: idUser?.value || "", idPass: idPass?.value || ""
+        };
         saveState();
         showToast("🔐 Secure Vault keys updated!");
     });
@@ -1085,7 +1097,7 @@ function triggerBulkAutoApply() {
 
     writeLog("system", `[SYSTEM] Initializing Batch Automation Runner...`);
     writeLog("info",   `[INFO] Read ${lines.length} job link(s) from batch input.`);
-    writeLog("info",   `[INFO] Credentials loaded → LinkedIn: "${state.credentials.liUser}", Naukri: "${state.credentials.nkUser}"`);
+    writeLog("info",   `[INFO] Credentials loaded → LinkedIn: "${state.credentials.liUser}", Naukri: "${state.credentials.nkUser}", Indeed: "${state.credentials.idUser || state.credentials.liUser}"`);
 
     let idx = 0;
 
@@ -1119,11 +1131,13 @@ function triggerBulkAutoApply() {
             return;
         }
 
+        const credUser = parsed.platform === "linkedin" ? state.credentials.liUser : parsed.platform === "indeed" ? (state.credentials.idUser || state.credentials.liUser) : state.credentials.nkUser;
+
         const steps = [
             { type: "info",    text: `[INFO] Launching Headless Chromium...` },
             { type: "info",    text: `[INFO] Navigating to target page...` },
             { type: "info",    text: `[INFO] Resolving security tokens...` },
-            { type: "warning", text: parsed.platform === "linkedin" ? `[INFO] LinkedIn login → Injecting credentials: "${state.credentials.liUser}"` : `[INFO] Naukri login → Injecting credentials: "${state.credentials.nkUser}"` },
+            { type: "warning", text: `[INFO] ${parsed.platform.toUpperCase()} login → Injecting credentials: "${credUser}"` },
             { type: "success", text: `[INFO] OAuth validation passed. Session established.` },
             { type: "info",    text: `[INFO] Fit Score: ${parsed.match}% | Form-filling profile: "Gaurav Maurya, +91 84189 31740"` },
             { type: "info",    text: `[INFO] Injecting resume: Gaurav_Maurya_ATS_Resume_Backend.pdf` },
@@ -1194,6 +1208,7 @@ function parseJobUrlDetails(url) {
     const details = { platform: "direct-web", company: "Enterprise Corp", role: "Senior .NET Developer", match: 94 };
     if (url.toLowerCase().includes("linkedin.com")) details.platform = "linkedin";
     else if (url.toLowerCase().includes("naukri.com")) details.platform = "naukri";
+    else if (url.toLowerCase().includes("indeed.com")) details.platform = "indeed";
 
     try {
         const slug = url.split('/').pop().replace(/-+/g, ' ');
