@@ -1108,6 +1108,17 @@ function triggerBulkAutoApply() {
         writeLog("system", `[JOB ${idx + 1}/${lines.length}] URL: ${url}`);
         writeLog("info",   `[INFO] Platform: ${parsed.platform.toUpperCase()} | Role: "${parsed.role}" @ "${parsed.company}"`);
 
+        // Safety Guard: Block Current Employer (Technobrains)
+        if (parsed.company.toLowerCase().includes("technobrains") || url.toLowerCase().includes("technobrains")) {
+            writeLog("warning", `[BLOCKED] 🚫 Current Employer Guard Activated! Skipping application for Technobrains IT Solution.`);
+            idx++;
+            const pct = Math.round((idx / lines.length) * 100);
+            if (progressBar) progressBar.style.width = `${pct}%`;
+            if (progressPct) progressPct.textContent = `${pct}%`;
+            setTimeout(executeNext, 1000);
+            return;
+        }
+
         const steps = [
             { type: "info",    text: `[INFO] Launching Headless Chromium...` },
             { type: "info",    text: `[INFO] Navigating to target page...` },
