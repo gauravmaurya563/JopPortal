@@ -205,11 +205,26 @@ const jobsData = [
 // INITIAL MOCK TRACKER APPLICATIONS
 // ─────────────────────────────────────────────────────────────
 const initialApplications = [
-    { id: "app-101", jobId: "job-003", jobTitle: "Technical Lead (.NET Core + SQL Server DBA)", companyName: "Technobrains IT Solution", status: "bookmarked", date: "2026-07-01", matchScore: 98, coverLetter: "" },
-    { id: "app-102", jobId: "job-001", jobTitle: "Senior .NET Core Backend Architect", companyName: "Simform", status: "applied", date: "2026-06-28", matchScore: 96, coverLetter: "Dear Hiring Team,\n\nI am writing to express my interest in the Senior .NET Core Backend Architect position at Simform. With over 3 years of backend engineering experience at Technobrains Business Solutions, I specialize in building robust backend services using C# and .NET Core, and have a proven track record in optimizing SQL databases.\n\nBest regards,\nGaurav Maurya" },
-    { id: "app-103", jobId: "job-009", jobTitle: "Senior Backend Developer – Healthcare IT", companyName: "Cognizant", status: "interviewing", date: "2026-06-20", matchScore: 95, coverLetter: "Dear Cognizant Hiring Team,\n\nI am thrilled to apply for the Senior Backend Developer position. Having designed secure medical platforms at Technobrains, I am confident in my ability to deliver highly-compliant .NET APIs.\n\nBest regards,\nGaurav Maurya" },
-    { id: "app-104", jobId: "job-013", jobTitle: ".NET Microservices Lead Engineer", companyName: "Infosys", status: "applied", date: "2026-07-05", matchScore: 91, coverLetter: "" },
-    { id: "app-105", jobId: "job-017", jobTitle: "Backend Lead – .NET Core & Clean Architecture", companyName: "Persistent Systems", status: "bookmarked", date: "2026-07-10", matchScore: 93, coverLetter: "" }
+    { id: "app-001", jobId: "job-001", jobTitle: "Senior .NET Core Backend Architect", companyName: "Simform", status: "applied", date: "2026-07-18", matchScore: 96, coverLetter: "Tailored application for Simform." },
+    { id: "app-002", jobId: "job-002", jobTitle: "Lead SQL Server DBA", companyName: "Simform", status: "applied", date: "2026-07-17", matchScore: 94, coverLetter: "Tailored application for Simform DBA role." },
+    { id: "app-003", jobId: "job-003", jobTitle: "Technical Lead (.NET Core + SQL Server DBA)", companyName: "Technobrains IT Solution", status: "bookmarked", date: "2026-07-01", matchScore: 98, coverLetter: "" },
+    { id: "app-004", jobId: "job-004", jobTitle: "Senior Backend & REST API Architect", companyName: "Technobrains IT Solution", status: "bookmarked", date: "2026-07-01", matchScore: 97, coverLetter: "" },
+    { id: "app-005", jobId: "job-005", jobTitle: "Senior .NET Developer (Enterprise ERP)", companyName: "TatvaSoft", status: "applied", date: "2026-07-19", matchScore: 93, coverLetter: "Tailored application for TatvaSoft." },
+    { id: "app-006", jobId: "job-006", jobTitle: "Database Performance Engineer (SQL Specialist)", companyName: "TatvaSoft", status: "interviewing", date: "2026-07-15", matchScore: 95, coverLetter: "" },
+    { id: "app-007", jobId: "job-007", jobTitle: "Lead Database Engineer (SQL Server DBA)", companyName: "Radixweb", status: "applied", date: "2026-07-16", matchScore: 94, coverLetter: "" },
+    { id: "app-008", jobId: "job-008", jobTitle: "Senior Support Engineer – Azure SQL", companyName: "Microsoft", status: "offer", date: "2026-07-10", matchScore: 92, coverLetter: "" },
+    { id: "app-009", jobId: "job-009", jobTitle: "Senior Backend Developer – Healthcare IT", companyName: "Cognizant", status: "interviewing", date: "2026-07-14", matchScore: 95, coverLetter: "" },
+    { id: "app-010", jobId: "job-010", jobTitle: "Senior Database Administrator (DBA Lead)", companyName: "Cognizant", status: "applied", date: "2026-07-18", matchScore: 93, coverLetter: "" },
+    { id: "app-011", jobId: "job-011", jobTitle: "Technical Architect – .NET & SQL Services", companyName: "Capgemini", status: "interviewing", date: "2026-07-12", matchScore: 95, coverLetter: "" },
+    { id: "app-012", jobId: "job-012", jobTitle: "Senior SQL Server Developer & DBA Analyst", companyName: "Capgemini", status: "applied", date: "2026-07-19", matchScore: 94, coverLetter: "" },
+    { id: "app-013", jobId: "job-013", jobTitle: ".NET Microservices Lead Engineer", companyName: "Infosys", status: "applied", date: "2026-07-19", matchScore: 91, coverLetter: "" },
+    { id: "app-014", jobId: "job-014", jobTitle: "Senior SQL Server DBA – Banking Domain", companyName: "Infosys", status: "applied", date: "2026-07-18", matchScore: 90, coverLetter: "" },
+    { id: "app-015", jobId: "job-015", jobTitle: "Senior .NET Backend Developer", companyName: "Wipro", status: "applied", date: "2026-07-17", matchScore: 90, coverLetter: "" },
+    { id: "app-016", jobId: "job-016", jobTitle: "SQL Server DBA & Performance Specialist", companyName: "Wipro", status: "applied", date: "2026-07-18", matchScore: 92, coverLetter: "" },
+    { id: "app-017", jobId: "job-017", jobTitle: "Backend Lead – .NET Core & Clean Architecture", companyName: "Persistent Systems", status: "offer", date: "2026-07-08", matchScore: 93, coverLetter: "" },
+    { id: "app-018", jobId: "job-018", jobTitle: "Senior .NET Web API Developer", companyName: "Simform", status: "applied", date: "2026-07-19", matchScore: 95, coverLetter: "" },
+    { id: "app-019", jobId: "job-019", jobTitle: "Database Architect & SQL DBA Lead", companyName: "TatvaSoft", status: "applied", date: "2026-07-19", matchScore: 96, coverLetter: "" },
+    { id: "app-020", jobId: "job-020", jobTitle: ".NET Core Full-Stack Developer (Senior)", companyName: "Capgemini", status: "applied", date: "2026-07-19", matchScore: 91, coverLetter: "" }
 ];
 
 // ─────────────────────────────────────────────────────────────
