@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ApexApply .NET v2.0 — Premium Job Application Tracker & Portal for Senior .NET Developers and SQL DBAs. Built for Gaurav Maurya.">
+    <meta name="description" content="ApexApply .NET - Premium Job Application and Tracker Dashboard for Senior .NET Developers and SQL DBAs.">
     <title>ApexApply .NET | Tailored Job Portal & Tracker</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Mobile Sidebar Overlay -->
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
-
+<body class="dark-theme">
     <div class="app-container">
-        <!-- ════════════════ SIDEBAR ════════════════ -->
-        <aside class="sidebar" id="sidebar">
-            <!-- Logo -->
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
             <div class="logo-area">
                 <div class="logo-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                         <polyline points="2 17 12 22 22 17"></polyline>
                         <polyline points="2 12 12 17 22 12"></polyline>
@@ -28,11 +25,11 @@
                 </div>
                 <div class="logo-text">
                     <span class="logo-title">ApexApply</span>
-                    <span class="logo-subtitle">.NET &amp; DBA Edition</span>
+                    <span class="logo-subtitle">.NET & DBA Edition</span>
                 </div>
             </div>
 
-            <!-- Profile Card -->
+            <!-- Profile Overview Quick Card -->
             <div class="profile-card">
                 <div class="profile-avatar">GM</div>
                 <div class="profile-info">
@@ -42,102 +39,81 @@
                 </div>
             </div>
 
-            <!-- Navigation -->
             <nav class="nav-menu">
                 <button class="nav-item active" data-tab="dashboard" id="btn-tab-dashboard">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                     <span>Dashboard</span>
                 </button>
                 <button class="nav-item" data-tab="jobs" id="btn-tab-jobs">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                     <span>Job Openings</span>
                     <span class="badge-count" id="jobs-count-badge">0</span>
                 </button>
                 <button class="nav-item" data-tab="companies" id="btn-tab-companies">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 21H2V3h10v18M12 8h4v3h-4zM12 14h4v3h-4zM6 8h4v3H6zM6 14h4v3H6z"></path></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 21H2V3h10v18M12 8h4v3h-4zM12 14h4v3h-4zM6 8h4v3H6zM6 14h4v3H6z"></path></svg>
                     <span>Hiring Companies</span>
                 </button>
                 <button class="nav-item" data-tab="tracker" id="btn-tab-tracker">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
                     <span>Application Tracker</span>
                 </button>
-                <button class="nav-item" data-tab="notes" id="btn-tab-notes">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                    <span>Job Notes</span>
-                    <span class="badge-count" id="notes-count-badge" style="display:none;">0</span>
-                </button>
                 <button class="nav-item" data-tab="bulk-apply" id="btn-tab-bulk-apply">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                    <span>Bulk Auto-Apply</span>
-                    <span class="badge-accent">PRO</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <span>Batch Job Prep</span>
+                    <span class="badge-accent" style="margin-left: 6px; font-size: 8px; padding: 1px 4px; border-radius: 4px; background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.3); color: var(--color-accent); font-weight: 700;">PRO</span>
                 </button>
                 <button class="nav-item" data-tab="profile" id="btn-tab-profile">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     <span>Resume Profile</span>
                 </button>
-
-                <button class="nav-item" id="btn-lock-session" style="color: var(--color-rose); margin-top: 14px; border-top: 1px solid var(--border-color); padding-top: 14px; border-radius: 0 0 8px 8px;">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <button class="nav-item" id="btn-lock-session" style="color: var(--color-rose); margin-top: 12px; border-top: 1px solid var(--border-color); padding-top: 12px; border-radius: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                     <span>Lock Portal</span>
                 </button>
             </nav>
 
             <div class="sidebar-footer">
                 <p class="copyright">&copy; 2026 ApexApply</p>
-                <p class="build-version">v2.0.0 &bull; Pro Active</p>
+                <p class="build-version">v1.2.0 • Pro Active</p>
             </div>
         </aside>
 
-        <!-- ════════════════ MAIN CONTENT ════════════════ -->
+        <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Top Bar -->
+            <!-- Header bar -->
             <header class="top-bar">
-                <!-- Hamburger (mobile) -->
-                <button class="hamburger-btn" id="btn-hamburger" aria-label="Open menu">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </button>
-
                 <div class="welcome-msg">
                     <h1 id="page-title">Dashboard Overview</h1>
-                    <p id="page-subtitle">Welcome back, Gaurav. Here's your personalized .NET &amp; DBA job board.</p>
+                    <p id="page-subtitle">Welcome back, Gaurav. Here's your personalized .NET & microservices job recommendation board.</p>
                 </div>
-
-                <div class="top-bar-actions">
-                    <div class="quick-stats">
-                        <div class="stat-mini">
-                            <span class="stat-mini-label">Listings</span>
-                            <span class="stat-mini-val" id="stat-total-jobs">0</span>
-                        </div>
-                        <div class="stat-mini">
-                            <span class="stat-mini-label">Applied</span>
-                            <span class="stat-mini-val" id="stat-applied-jobs">0</span>
-                        </div>
-                        <div class="stat-mini highlighted">
-                            <span class="stat-mini-label">Interviews</span>
-                            <span class="stat-mini-val text-cyan" id="stat-interviews">0</span>
-                        </div>
-                        <div class="stat-mini success">
-                            <span class="stat-mini-label">Offers</span>
-                            <span class="stat-mini-val text-emerald" id="stat-offers">0</span>
-                        </div>
+                <div class="quick-stats">
+                    <div class="stat-mini">
+                        <span class="stat-mini-label">Total Listings</span>
+                        <span class="stat-mini-val" id="stat-total-jobs">12</span>
                     </div>
-
-                    <!-- Theme Toggle -->
-                    <button class="theme-toggle-btn" id="btn-theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">
-                        <svg id="theme-icon-dark" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                        <svg id="theme-icon-light" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    </button>
+                    <div class="stat-mini">
+                        <span class="stat-mini-label">Applied</span>
+                        <span class="stat-mini-val" id="stat-applied-jobs">0</span>
+                    </div>
+                    <div class="stat-mini highlighted">
+                        <span class="stat-mini-label">Interviews</span>
+                        <span class="stat-mini-val text-cyan" id="stat-interviews">0</span>
+                    </div>
+                    <div class="stat-mini success">
+                        <span class="stat-mini-label">Offers</span>
+                        <span class="stat-mini-val text-emerald" id="stat-offers">0</span>
+                    </div>
                 </div>
             </header>
 
-            <!-- ── DASHBOARD TAB ── -->
+            <!-- Dashboard Content Section -->
             <section id="tab-dashboard" class="tab-content active-tab">
                 <div class="dashboard-grid">
-                    <!-- Profile Fit Card -->
+                    <!-- Column 1: Fit Analysis -->
                     <div class="grid-card fit-analysis-card">
                         <div class="card-header">
-                            <h2>Profile Compatibility</h2>
-                            <span class="badge-accent" style="font-size:10px; padding:3px 8px;">AI-Powered</span>
+                            <h2>Profile Compatibility Profile</h2>
+                            <span class="badge-accent">AI-Powered</span>
                         </div>
                         <div class="fit-gauge-container">
                             <div class="circular-progress">
@@ -145,10 +121,10 @@
                             </div>
                             <div class="gauge-details">
                                 <h3>Excellent Fit Match</h3>
-                                <p>Your skillset perfectly aligns with top-tier enterprise backend &amp; DBA roles. Strongest domains:</p>
+                                <p>Your skillset perfectly aligns with top tier enterprise backend & DBA roles. Your strongest domains are:</p>
                                 <ul class="aligned-skill-pills">
-                                    <li>ASP.NET Core 8.0</li>
-                                    <li>SQL Server DBA</li>
+                                    <li>ASP.NET Core (8.0)</li>
+                                    <li>SQL Server Administration</li>
                                     <li>DB Performance Tuning</li>
                                     <li>REST API Design</li>
                                     <li>Clean Architecture</li>
@@ -158,39 +134,41 @@
                         <hr class="card-divider">
                         <div class="recommendation-insights">
                             <h4 class="insight-title">🎯 DBA Lead Insight</h4>
-                            <p>Companies in Ahmedabad like <b>Simform</b>, <b>TatvaSoft</b>, and <b>Technobrains</b> are actively looking for Senior developers who can run DBA lifecycle management, indexing, and stored-proc optimization.</p>
+                            <p>Companies in Ahmedabad like <b>Simform</b>, <b>TatvaSoft</b>, and <b>Technobrains</b> are actively looking for Senior developers who can run DBA lifecycle management, indexing, and store proc optimization.</p>
                         </div>
                     </div>
 
-                    <!-- Quick Actions Card -->
+                    <!-- Column 2: Quick Action / Resume Metrics -->
                     <div class="grid-card quick-actions-card">
                         <h2>Quick Dashboard Actions</h2>
                         <div class="action-buttons-grid">
                             <button class="action-btn" id="btn-quick-view-jobs">
                                 <span class="btn-icon bg-blue">
-                                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 </span>
                                 <span class="btn-labels">
                                     <span class="btn-title">Browse Jobs Feed</span>
-                                    <span class="btn-desc" id="dash-jobs-count-label">20 tailored job matches</span>
+                                    <span class="btn-desc">12 Tailored job match postings</span>
                                 </span>
                             </button>
+
                             <button class="action-btn" id="btn-quick-view-tracker">
                                 <span class="btn-icon bg-cyan">
-                                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                 </span>
                                 <span class="btn-labels">
                                     <span class="btn-title">Application Tracker</span>
                                     <span class="btn-desc">Check Kanban pipelines</span>
                                 </span>
                             </button>
+
                             <button class="action-btn" id="btn-export-cv">
                                 <span class="btn-icon bg-emerald">
-                                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                 </span>
                                 <span class="btn-labels">
                                     <span class="btn-title">Download Resume PDF</span>
-                                    <span class="btn-desc">ATS-optimized .NET/DBA resume</span>
+                                    <span class="btn-desc">Official ATS .NET/DBA resume</span>
                                 </span>
                             </button>
                         </div>
@@ -216,30 +194,30 @@
                 </div>
             </section>
 
-            <!-- ── JOBS TAB ── -->
+            <!-- Jobs List & Detail Section -->
             <section id="tab-jobs" class="tab-content">
                 <div class="jobs-layout-container">
                     <!-- Filters Sidebar -->
                     <div class="filters-sidebar">
                         <div class="filter-header">
-                            <h3>Filter Jobs</h3>
+                            <h3>Filter Matching Jobs</h3>
                             <button class="clear-filters-btn" id="btn-clear-filters">Reset</button>
                         </div>
                         <hr class="card-divider">
                         <div class="filter-group">
-                            <label for="search-job">Keywords</label>
+                            <label for="search-job">Job Title / Keywords</label>
                             <div class="search-input-wrapper">
                                 <input type="text" id="search-job" placeholder="e.g. .NET Core, SQL DBA...">
                             </div>
                         </div>
                         <div class="filter-group">
-                            <label for="filter-location">Location</label>
+                            <label for="filter-location">Job Location</label>
                             <select id="filter-location">
                                 <option value="all">All Locations</option>
-                                <option value="remote">Remote</option>
-                                <option value="ahmedabad">Ahmedabad</option>
-                                <option value="pune">Pune</option>
-                                <option value="bangalore">Bangalore</option>
+                                <option value="remote">Remote (Global/India)</option>
+                                <option value="ahmedabad">Ahmedabad, India</option>
+                                <option value="pune">Pune, India</option>
+                                <option value="bangalore">Bangalore, India</option>
                             </select>
                         </div>
                         <div class="filter-group">
@@ -248,11 +226,11 @@
                                 <option value="all">All Specialties</option>
                                 <option value="dotnet">Senior .NET Developer</option>
                                 <option value="dba">SQL Server DBA</option>
-                                <option value="architect">Backend Architect</option>
+                                <option value="architect">Backend / API Architect</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Min Match Score</label>
+                            <label>Minimum Match Score</label>
                             <div class="range-wrapper">
                                 <input type="range" id="filter-match" min="80" max="98" value="85" step="1">
                                 <span class="range-value" id="match-val-display">85% Match</span>
@@ -260,17 +238,17 @@
                         </div>
                     </div>
 
-                    <!-- Jobs Feed -->
+                    <!-- Jobs Listings Feed -->
                     <div class="jobs-feed-list" id="jobs-list">
                         <!-- Loaded dynamically -->
                     </div>
 
-                    <!-- Job Detail Panel -->
+                    <!-- Job Detail view -->
                     <div class="job-detail-panel" id="job-detail-card">
                         <div class="detail-empty-state">
-                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="floating-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="floating-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                             <h3>Select a job opening</h3>
-                            <p>Click any job card to view match reports, responsibilities, salary ranges, and apply links.</p>
+                            <p>Click on any job card in the list to view comprehensive match reports, responsibilities, salary ranges, and request a generated cover letter.</p>
                         </div>
                         <div class="detail-full-state hidden" id="job-detail-content">
                             <!-- Populated dynamically by JS -->
@@ -279,25 +257,25 @@
                 </div>
             </section>
 
-            <!-- ── COMPANIES TAB ── -->
+            <!-- Hiring Companies Section -->
             <section id="tab-companies" class="tab-content">
                 <div class="companies-intro">
                     <h2>Preferred Companies</h2>
-                    <p>Selected based on active job openings, .NET/SQL stack alignment, and Ahmedabad / remote availability.</p>
+                    <p>These companies are selected based on active job openings, technology alignment (.NET/SQL stack), and location preference in Ahmedabad or remote-friendly models in India.</p>
                 </div>
                 <div class="company-extended-list" id="companies-full-grid">
                     <!-- Populated dynamically -->
                 </div>
             </section>
 
-            <!-- ── TRACKER TAB ── -->
+            <!-- Application Tracker (Kanban) Section -->
             <section id="tab-tracker" class="tab-content">
                 <div class="tracker-intro">
                     <div>
                         <h2>Interactive Application Board</h2>
-                        <p>Track applications from bookmark to official offer. Counters update dynamically.</p>
+                        <p>Track your applications from bookmark to official offer. Cards update statistics counters dynamically.</p>
                     </div>
-                    <button class="btn btn-secondary btn-sm" id="btn-reset-tracker">Reset Board</button>
+                    <button class="btn btn-secondary btn-sm" id="btn-reset-tracker">Reset Board Data</button>
                 </div>
                 <div class="kanban-board">
                     <!-- Bookmarked -->
@@ -307,8 +285,11 @@
                             <h3>Bookmarked</h3>
                             <span class="column-badge" id="badge-bookmarked">0</span>
                         </div>
-                        <div class="kanban-cards-container" data-status="bookmarked"></div>
+                        <div class="kanban-cards-container" data-status="bookmarked">
+                            <!-- Cards inserted here -->
+                        </div>
                     </div>
+
                     <!-- Applied -->
                     <div class="kanban-column" id="col-applied">
                         <div class="column-header">
@@ -316,8 +297,11 @@
                             <h3>Applied</h3>
                             <span class="column-badge" id="badge-applied">0</span>
                         </div>
-                        <div class="kanban-cards-container" data-status="applied"></div>
+                        <div class="kanban-cards-container" data-status="applied">
+                            <!-- Cards inserted here -->
+                        </div>
                     </div>
+
                     <!-- Interviewing -->
                     <div class="kanban-column" id="col-interviewing">
                         <div class="column-header">
@@ -325,17 +309,23 @@
                             <h3>Interviewing</h3>
                             <span class="column-badge" id="badge-interviewing">0</span>
                         </div>
-                        <div class="kanban-cards-container" data-status="interviewing"></div>
+                        <div class="kanban-cards-container" data-status="interviewing">
+                            <!-- Cards inserted here -->
+                        </div>
                     </div>
-                    <!-- Offer -->
+
+                    <!-- Offer Received -->
                     <div class="kanban-column" id="col-offer">
                         <div class="column-header">
                             <span class="column-dot bg-emerald"></span>
                             <h3>Offer Received</h3>
                             <span class="column-badge" id="badge-offer">0</span>
                         </div>
-                        <div class="kanban-cards-container" data-status="offer"></div>
+                        <div class="kanban-cards-container" data-status="offer">
+                            <!-- Cards inserted here -->
+                        </div>
                     </div>
+
                     <!-- Rejected -->
                     <div class="kanban-column" id="col-rejected">
                         <div class="column-header">
@@ -343,89 +333,67 @@
                             <h3>Rejected</h3>
                             <span class="column-badge" id="badge-rejected">0</span>
                         </div>
-                        <div class="kanban-cards-container" data-status="rejected"></div>
+                        <div class="kanban-cards-container" data-status="rejected">
+                            <!-- Cards inserted here -->
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ── NOTES TAB ── -->
-            <section id="tab-notes" class="tab-content">
-                <div class="notes-tab-header">
-                    <h2>📝 Job Notes</h2>
-                    <p>Personal notes you've saved against specific job openings. Add notes from the Job Detail panel.</p>
-                </div>
-                <div id="notes-list-container">
-                    <!-- Populated dynamically by JS -->
-                </div>
-            </section>
-
-            <!-- ── BULK AUTO-APPLY TAB ── -->
+            <!-- Bulk Auto-Apply Section -->
             <section id="tab-bulk-apply" class="tab-content">
                 <div class="bulk-layout-container">
                     <div class="bulk-left-panel">
-                        <!-- Credentials Vault -->
-                        <div class="grid-card credentials-vault-card" style="margin-bottom: 20px;">
-                            <div class="card-header" style="margin-bottom: 14px;">
-                                <h2>Secure Credentials Vault</h2>
-                                <span class="badge-accent" style="font-size:10px; padding:3px 8px; color: var(--color-emerald); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08);">Crypt-Vault</span>
+                        <!-- Account references; this page does not store passwords -->
+                        <div class="grid-card credentials-vault-card" style="margin-bottom: 24px;">
+                            <div class="card-header" style="margin-bottom: 16px;">
+                                <h2>Account References</h2>
+                                <span class="badge-accent" style="border-color: rgba(16, 185, 129, 0.3); color: var(--color-emerald); background: rgba(16, 185, 129, 0.1);">Simulated Crypt-Vault</span>
                             </div>
                             <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
-                                Setup accounts to authenticate and apply on your behalf. Credentials are encrypted in your local sandbox.
+                                Optional email references for your job tracker. Passwords are never requested, stored, or sent by this page.
                             </p>
-                            <!-- Mode Selector -->
-                            <div style="margin-bottom: 18px;">
+
+                            <!-- Mode Selector Segmented Control -->
+                            <div class="mode-selector-wrapper" style="margin-bottom: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
                                 <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 8px; letter-spacing: 0.5px;">Automation Security Mode</span>
-                                <div class="segmented-control">
-                                    <button type="button" class="segmented-btn active" id="btn-mode-auto" data-mode="automated">Fully Automated</button>
-                                    <button type="button" class="segmented-btn" id="btn-mode-manual" data-mode="manual">Manual Intercept</button>
+                                <div class="segmented-control" style="display: flex; gap: 8px; background: rgba(5,7,12,0.6); padding: 4px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                    <button type="button" class="segmented-btn active" id="btn-mode-auto" data-mode="automated" style="flex: 1; background: var(--color-primary); border: none; outline: none; color: white; padding: 6px 12px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth);">Fully Automated</button>
+                                    <button type="button" class="segmented-btn" id="btn-mode-manual" data-mode="manual" style="flex: 1; background: transparent; border: none; outline: none; color: var(--text-secondary); padding: 6px 12px; border-radius: 6px; font-family: var(--font-body); font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth);">Manual Intercept</button>
                                 </div>
                             </div>
-
+                            
                             <form id="vault-form">
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
                                     <!-- LinkedIn Vault -->
-                                    <div class="vault-account-box">
-                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #0077b5; font-size: 13px;">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75-1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                            LinkedIn
+                                    <div class="vault-account-box" style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #0077b5;">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                            <span>LinkedIn Settings</span>
                                         </div>
                                         <div class="form-group" style="margin-bottom: 8px;">
                                             <label style="font-size: 10px;">Username / Email</label>
-                                            <input type="text" id="vault-li-user" value="gauravmaurya919@gmail.com" required>
+                                            <input type="text" id="vault-li-user" value="gauravmaurya919@gmail.com" required style="padding: 6px 10px; font-size:12px;">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="margin-bottom: 0;">
                                             <label style="font-size: 10px;">Password</label>
-                                            <input type="password" id="vault-li-pass" value="•••••••••••••" required>
+                                            <input type="password" id="vault-li-pass" value="•••••••••••••" required style="padding: 6px 10px; font-size:12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 8px; color: white; width: 100%;">
                                         </div>
                                     </div>
+                                    
                                     <!-- Naukri Vault -->
-                                    <div class="vault-account-box">
-                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #4f8ef7; font-size: 13px;">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="#4f8ef7"/><text x="4" y="16" fill="white" font-size="12" font-family="sans-serif" font-weight="900">N</text></svg>
-                                            Naukri
+                                    <div class="vault-account-box" style="background: rgba(255,255,255,0.01); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #092e62;">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="#092e62"/><text x="4" y="16" fill="white" font-size="12" font-family="sans-serif" font-weight="900">N</text></svg>
+                                            <span>Naukri Settings</span>
                                         </div>
                                         <div class="form-group" style="margin-bottom: 8px;">
                                             <label style="font-size: 10px;">Username / Email</label>
-                                            <input type="text" id="vault-nk-user" value="gauravmaurya919@gmail.com" required>
+                                            <input type="text" id="vault-nk-user" value="gauravmaurya919@gmail.com" required style="padding: 6px 10px; font-size:12px;">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="margin-bottom: 0;">
                                             <label style="font-size: 10px;">Password</label>
-                                            <input type="password" id="vault-nk-pass" value="•••••••••••••" required>
-                                        </div>
-                                    </div>
-                                    <!-- Indeed Vault -->
-                                    <div class="vault-account-box">
-                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; color: #2164f3; font-size: 13px;">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="#2164f3"/><text x="6" y="16" fill="white" font-size="14" font-family="sans-serif" font-weight="900">i</text></svg>
-                                            Indeed
-                                        </div>
-                                        <div class="form-group" style="margin-bottom: 8px;">
-                                            <label style="font-size: 10px;">Username / Email</label>
-                                            <input type="text" id="vault-id-user" value="gauravmaurya919@gmail.com" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label style="font-size: 10px;">Password</label>
-                                            <input type="password" id="vault-id-pass" value="•••••••••••••" required>
+                                            <input type="password" id="vault-nk-pass" value="•••••••••••••" required style="padding: 6px 10px; font-size:12px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 8px; color: white; width: 100%;">
                                         </div>
                                     </div>
                                 </div>
@@ -433,26 +401,35 @@
                             </form>
                         </div>
 
-                        <!-- URL Inputs -->
+                        <!-- URL Inputs Card -->
                         <div class="grid-card">
-                            <h2 style="margin-bottom: 10px;">Bulk Direct URL List</h2>
+                            <h2>Bulk Direct URL List</h2>
                             <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
-                                Paste target job URLs (one per line). The automation engine will classify links and inject relevant credentials.
+                                Paste target job URLs (one per line). The tracker will classify each link and add it as a bookmarked job for you to review and apply to directly.
                             </p>
                             <div class="form-group">
-                                <textarea id="bulk-urls-input" rows="8" placeholder="Paste LinkedIn / Naukri / Indeed job links here...&#10;https://www.linkedin.com/jobs/view/...&#10;https://www.naukri.com/job-listings-...&#10;https://in.indeed.com/viewjob?..."></textarea>
+                                <textarea id="bulk-urls-input" rows="8" placeholder="Paste job links here..." style="width: 100%; background: rgba(5,7,12,0.6); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; color: white; font-family: monospace; font-size: 12px; resize: vertical; outline: none; transition: var(--transition-smooth);"></textarea>
                             </div>
-                            <div style="display: flex; gap: 10px; margin-top: 14px;">
+                            <div class="bulk-controls" style="display: flex; gap: 12px; margin-top: 14px;">
                                 <button class="btn btn-primary" id="btn-start-bulk-apply" style="flex: 1;">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                                    Initialize Auto-Apply Batch
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    Prepare Job Batch
                                 </button>
-                                <button class="btn btn-secondary" id="btn-clear-urls">Reset</button>
+                                <button class="btn btn-secondary" id="btn-clear-urls">Reset List</button>
+                            </div>
+                            <div id="batch-review-panel" class="hidden" style="margin-top: 16px; padding: 16px; border: 1px solid var(--border-color); border-radius: 8px; background: rgba(255,255,255,0.02);">
+                                <h3 style="margin: 0 0 6px; font-size: 15px;">Review imported job</h3>
+                                <p id="batch-review-count" style="margin: 0 0 12px; color: var(--text-secondary); font-size: 12px;"></p>
+                                <div class="form-group"><label for="batch-review-title">Job title</label><input id="batch-review-title" type="text" required></div>
+                                <div class="form-group"><label for="batch-review-company">Company</label><input id="batch-review-company" type="text" required></div>
+                                <div class="form-group"><label for="batch-review-requirements">Requirements (optional)</label><textarea id="batch-review-requirements" rows="4" placeholder="Paste required skills or job-description text to calculate a fit score."></textarea></div>
+                                <p id="batch-review-score" style="margin: 0 0 12px; color: var(--text-secondary); font-size: 12px;">Fit score: not scored</p>
+                                <div style="display: flex; gap: 10px;"><button type="button" class="btn btn-primary btn-sm" id="btn-review-save">Save bookmark</button><button type="button" class="btn btn-secondary btn-sm" id="btn-review-skip">Skip</button></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Terminal Console -->
+                    <!-- Terminal console display -->
                     <div class="bulk-right-panel">
                         <div class="terminal-container">
                             <div class="terminal-header-bar">
@@ -461,28 +438,29 @@
                                     <span class="dot yellow"></span>
                                     <span class="dot green"></span>
                                 </div>
-                                <span class="terminal-title">automation_webdriver.js — console</span>
+                                <span class="terminal-title">job_preparation.js console</span>
                                 <span class="terminal-status" id="terminal-pulse">IDLE</span>
                             </div>
-                            <div class="terminal-body-area" id="terminal-log-output" style="position:relative;">
-                                <div class="term-line system">[SYSTEM] WebDriver automation console initialized. Ready to execute job batch.</div>
-                                <div class="term-line help">Paste URLs on the left, then click "Initialize Auto-Apply Batch" to run simulation.</div>
+                            <div class="terminal-body-area" id="terminal-log-output">
+                                <div class="term-line system">[SYSTEM] Job review console initialized. Ready to prepare a batch.</div>
+                                <div class="term-line help">Paste URLs on the left, then review each job before saving it as a bookmark.</div>
+                            </div>
 
-                                <!-- Credentials Intercept Overlay -->
-                                <div class="terminal-intercept-overlay hidden" id="terminal-intercept">
-                                    <div class="intercept-card">
-                                        <div class="intercept-hdr">
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--color-warning);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                                            <span>Credentials Verification Intercept</span>
-                                        </div>
-                                        <p class="intercept-desc">Confirm login for <span id="intercept-platform-name">LinkedIn</span> (<span id="intercept-email-display">gauravmaurya919@gmail.com</span>):</p>
-                                        <div class="intercept-input-row">
-                                            <input type="password" id="intercept-password" placeholder="Enter platform password...">
-                                            <button type="button" class="btn btn-primary btn-sm" id="btn-intercept-submit">Verify &amp; Resume</button>
-                                        </div>
+                            <!-- Credentials Intercept Overlay -->
+                            <div class="terminal-intercept-overlay hidden" id="terminal-intercept">
+                                <div class="intercept-card">
+                                    <div class="intercept-hdr">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                        <span>Credentials Verification Intercept</span>
+                                    </div>
+                                    <p class="intercept-desc">Confirm login credentials for <span id="intercept-platform-name">LinkedIn</span> (<span id="intercept-email-display">gauravmaurya919@gmail.com</span>):</p>
+                                    <div class="intercept-input-row">
+                                        <input type="password" id="intercept-password" placeholder="Enter platform password to verify...">
+                                        <button type="button" class="btn btn-primary btn-sm" id="btn-intercept-submit">Verify &amp; Resume</button>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="terminal-progress-row">
                                 <span class="progress-lbl">Batch Complete:</span>
                                 <div class="progress-bar-bg">
@@ -491,105 +469,95 @@
                                 <span class="progress-pct" id="bulk-progress-pct">0%</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ── PROFILE TAB ── -->
+                             <!-- Resume Profile Section -->
             <section id="tab-profile" class="tab-content">
                 <div class="profile-layout">
-                    <!-- Left Sidebar -->
+                    <!-- Profile details sidebar -->
                     <div class="profile-left-bar">
                         <div class="profile-main-detail">
                             <div class="large-avatar">GM</div>
                             <h2>Gaurav Maurya</h2>
                             <p class="prof-tag">.NET Core Backend Developer</p>
-                            <p class="prof-location">📍 Ahmedabad, Gujarat, India</p>
+                            <p class="prof-location">Ahmedabad, Gujarat, India</p>
+                            
                             <hr class="card-divider">
+                            
                             <div class="prof-contact-info">
                                 <div class="contact-item">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                     <span>gauravmaurya919@gmail.com</span>
                                 </div>
                                 <div class="contact-item">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                     <span>+91 84189 31740</span>
                                 </div>
                                 <div class="contact-item">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                                    <a href="https://linkedin.com/in/gaurav-maurya-830a071a6" target="_blank" rel="noopener">linkedin.com/in/gaurav-maurya</a>
-                                </div>
-                                <div class="contact-item">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                    <a href="https://github.com/gauravmaurya563" target="_blank" rel="noopener">github.com/gauravmaurya563</a>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <span>linkedin.com/in/gaurav-maurya-830a071a6</span>
                                 </div>
                             </div>
-                            <span class="last-updated-badge">
-                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                Updated July 2026
-                            </span>
                         </div>
 
-                        <!-- Achievements -->
+                        <!-- Achievements block -->
                         <div class="profile-left-widget">
-                            <h3>🏆 Achievements</h3>
+                            <h3>Achievements</h3>
                             <ul class="achievements-bullet-list">
-                                <li><strong>Employee Spotlight Award (May 2024):</strong> Recognized at Technobrains for high-impact backend optimization and ownership.</li>
-                                <li><strong>35-40% API Latency Reduction:</strong> Via LINQ optimization and Redis distributed caching.</li>
-                                <li><strong>30%+ SQL Performance Boost:</strong> Through stored procedures, indexing, and execution plan analysis.</li>
-                                <li><strong>Architecture Refactor:</strong> Cut developer onboarding time by ~50% via clean-layered architecture.</li>
+                                <li><strong>Employee Spotlight Award (May 2024):</strong> Recognized at Technobrains Business Solutions for high-impact backend optimization and performance.</li>
+                                <li><strong>Performance Optimization:</strong> Delivered 35-40% response latency reduction and 30%+ SQL query performance boost.</li>
+                                <li><strong>Code Architecture:</strong> Refactored monolithic codebase to clean repository layers, cutting onboarding time by ~50%.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Right Content -->
-                    <div class="profile-right-content">
+                    <!-- Profile detail body -->
+                    <div class="profile-right-body">
                         <!-- Summary -->
                         <div class="profile-section">
-                            <h3>Professional Summary</h3>
-                            <p class="summary-text">Results-driven Backend Developer with 3+ years of experience engineering high-performance REST APIs and enterprise applications using .NET Core, C#, ASP.NET MVC, and SQL Server. Delivered a 35–40% reduction in API response latency through LINQ optimization and Redis distributed caching, and a 30%+ boost in SQL query performance via stored procedures and indexing strategies. Architected server-side pagination supporting 10,000+ concurrent records. Recognized with the Employee Spotlight Award (May 2024). Adept at clean architecture, SOLID principles, microservices design, and Agile delivery — seeking a high-growth backend or full-stack .NET role.</p>
+                            <h2>Professional Summary</h2>
+                            <p>Results-driven Backend Developer with 3+ years of experience engineering high-performance REST APIs and enterprise applications using .NET Core, C#, ASP.NET MVC, and SQL Server. Delivered a 35–40% reduction in API response latency through LINQ optimization and Redis distributed caching, and a 30%+ boost in SQL query performance via stored procedures and indexing strategies. Architected server-side pagination supporting 10,000+ concurrent records with zero degradation. Recognized with the Employee Spotlight Award (May 2024) for high-impact backend optimization. Adept at clean architecture, SOLID principles, microservices design, and Agile delivery — seeking a high-growth backend or full-stack .NET role (on-site or remote).</p>
                         </div>
 
-                        <!-- Skills -->
+                        <!-- Technical Skills Details -->
                         <div class="profile-section">
-                            <h3>Technical Skills</h3>
-                            <div class="skills-grid" id="profile-skills-grid">
-                                <!-- Populated by JS -->
+                            <h2>Technical Skills Inventory</h2>
+                            <div class="skills-detail-grid" id="profile-skills-grid">
+                                <!-- Populated dynamically -->
                             </div>
                         </div>
 
-                        <!-- Experience -->
+                        <!-- Work Experience -->
                         <div class="profile-section">
-                            <h3>Work Experience</h3>
-                            <div class="experience-timeline">
-                                <div class="exp-item">
-                                    <div class="exp-marker">
-                                        <div class="exp-dot"></div>
-                                        <div class="exp-line"></div>
+                            <h2>Work Experience</h2>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-badge"></div>
+                                    <div class="timeline-header">
+                                        <h3>Backend Developer</h3>
+                                        <span class="timeline-company">Technobrains Business Solutions</span>
+                                        <span class="timeline-date">May 2023 - Present</span>
                                     </div>
-                                    <div class="exp-content">
-                                        <div class="exp-title">Backend Developer (.NET Core)</div>
-                                        <div class="exp-company">Technobrains Business Solutions</div>
-                                        <div class="exp-duration">May 2023 – Present · Ahmedabad, Gujarat</div>
-                                        <ul class="exp-desc">
+                                    <div class="timeline-body">
+                                        <p>Engineered high-performance REST APIs and enterprise applications utilizing C#, .NET Core, and SQL Server databases.</p>
+                                        <ul>
                                             <li>Engineered 15+ scalable REST APIs handling 10,000+ concurrent records with sub-200ms response times.</li>
-                                            <li>Achieved 35–40% reduction in API latency via LINQ optimization and Redis distributed caching.</li>
+                                            <li>Achieved 35-40% reduction in API response latency via LINQ query optimization and Redis distributed caching.</li>
                                             <li>Optimized SQL stored procedures and index structures, boosting query performance by 30%+.</li>
-                                            <li>Refactored legacy monolith into clean architecture layers (Repository, DI, SOLID), cutting onboarding by 50%.</li>
-                                            <li>Diagnosed 20+ production bottlenecks using SQL execution plan analysis and SSMS profiling.</li>
+                                            <li>Refactored legacy monolithic backend into clean architecture layers (Repository, DI, SOLID), cutting developer onboarding time by 50%.</li>
+                                            <li>Diagnosed and fixed 20+ production performance bottlenecks using execution plan analysis.</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="exp-item">
-                                    <div class="exp-marker">
-                                        <div class="exp-dot" style="background: var(--color-accent);"></div>
+                                <div class="timeline-item">
+                                    <div class="timeline-badge"></div>
+                                    <div class="timeline-header">
+                                        <h3>Software Development Intern</h3>
+                                        <span class="timeline-company">Zobi Web Solutions</span>
+                                        <span class="timeline-date">Nov 2022 - Apr 2023</span>
                                     </div>
-                                    <div class="exp-content">
-                                        <div class="exp-title">Software Development Intern</div>
-                                        <div class="exp-company">Zobi Web Solutions</div>
-                                        <div class="exp-duration">Nov 2022 – Apr 2023 · Ahmedabad, Gujarat</div>
-                                        <ul class="exp-desc">
-                                            <li>Built REST API endpoints using ASP.NET MVC and resolved 30+ defects across 4 product modules.</li>
+                                    <div class="timeline-body">
+                                        <p>Assisted in full-stack development using ASP.NET MVC, C#, and React UI libraries.</p>
+                                        <ul>
+                                            <li>Built REST API endpoints and resolved 30+ defects across 4 product modules.</li>
                                             <li>Gained hands-on experience in Git branching, code reviews, and Agile/Scrum sprints.</li>
                                         </ul>
                                     </div>
@@ -597,48 +565,43 @@
                             </div>
                         </div>
 
-                        <!-- Projects -->
+                        <!-- Key Projects -->
                         <div class="profile-section">
-                            <h3>Key Projects</h3>
-                            <div class="experience-timeline">
-                                <div class="exp-item">
-                                    <div class="exp-marker"><div class="exp-dot" style="background: var(--color-emerald);"></div><div class="exp-line"></div></div>
-                                    <div class="exp-content">
-                                        <div class="exp-title">Hotel Booking Platform</div>
-                                        <div class="exp-company" style="color: var(--color-accent);">ASP.NET Core · Next.js · SQL Server · Redis</div>
-                                        <p class="exp-desc">Architected REST APIs for 5,000+ simultaneous hotel search queries (&lt;300ms). Built Next.js SSR front-end reducing page load by 40%.</p>
+                            <h2>Key Projects</h2>
+                            <div class="projects-detail-list">
+                                <div class="project-detail-card">
+                                    <div class="proj-detail-header">
+                                        <h3>Hotel Booking Platform</h3>
+                                        <span class="proj-tech">ASP.NET Core · Next.js · SQL Server · Redis</span>
                                     </div>
+                                    <p>Architected REST APIs supporting 5,000+ simultaneous hotel search queries with response times under 300ms. Built a Next.js front-end with SSR, reducing page load by 40%.</p>
                                 </div>
-                                <div class="exp-item">
-                                    <div class="exp-marker"><div class="exp-dot" style="background: var(--color-warning);"></div><div class="exp-line"></div></div>
-                                    <div class="exp-content">
-                                        <div class="exp-title">Human Resource Management System (HRMS)</div>
-                                        <div class="exp-company" style="color: var(--color-accent);">ASP.NET MVC · React · SQL Server</div>
-                                        <p class="exp-desc">Engineered payroll and attendance modules for 500+ employees. Optimized indexes to reduce report query runtimes by 65%.</p>
+                                <div class="project-detail-card">
+                                    <div class="proj-detail-header">
+                                        <h3>Human Resource Management System (HRMS)</h3>
+                                        <span class="proj-tech">ASP.NET MVC · React · SQL Server</span>
                                     </div>
+                                    <p>Engineered core payroll and attendance modules for 500+ employees. Optimized indexes and stored procedures to reduce report query runtimes by 65%.</p>
                                 </div>
-                                <div class="exp-item">
-                                    <div class="exp-marker"><div class="exp-dot" style="background: var(--color-rose);"></div></div>
-                                    <div class="exp-content">
-                                        <div class="exp-title">E-Commerce Platform</div>
-                                        <div class="exp-company" style="color: var(--color-accent);">.NET Core · Angular · SQL Server</div>
-                                        <p class="exp-desc">Backend order management and inventory services handling 1,000+ daily transactions. Integrated payment gateway with retry logic and idempotency checks.</p>
+                                <div class="project-detail-card">
+                                    <div class="proj-detail-header">
+                                        <h3>E-Commerce Platform</h3>
+                                        <span class="proj-tech">.NET Core · Angular · SQL Server</span>
                                     </div>
+                                    <p>Developed backend order management and inventory services handling 1,000+ transactions daily. Integrated payment gateway with retry logs and idempotency checks.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Education -->
                         <div class="profile-section">
-                            <h3>Education</h3>
-                            <div class="exp-item">
-                                <div class="exp-marker"><div class="exp-dot"></div></div>
-                                <div class="exp-content">
-                                    <div class="exp-title">B.Tech in Computer Science &amp; Engineering</div>
-                                    <div class="exp-company">Rungta College of Engineering and Technology, Bhilai</div>
-                                    <div class="exp-duration">2018 – 2022 · GPA: 8.1 / 10</div>
-                                    <p class="exp-desc">Focus on advanced database administration, algorithms, and software engineering.</p>
+                            <h2>Education</h2>
+                            <div class="edu-card">
+                                <div class="edu-card-header">
+                                    <h3>B.Tech in Computer Science & Engineering</h3>
+                                    <span class="timeline-date">2018 - 2022</span>
                                 </div>
+                                <p>Rungta College of Engineering and Technology, Bhilai • GPA: 8.1 / 10 • Focus on advanced database administration, algorithms, and software engineering.</p>
                             </div>
                         </div>
                     </div>
@@ -647,7 +610,7 @@
         </main>
     </div>
 
-    <!-- ════════════════ APPLICATION MODAL ════════════════ -->
+    <!-- Application Modal Overlay -->
     <div class="modal-overlay hidden" id="apply-modal">
         <div class="modal-card">
             <button class="close-modal-btn" id="btn-close-modal">
@@ -657,17 +620,19 @@
                 <div class="modal-left">
                     <span class="modal-pre">Apply for Position</span>
                     <h2 id="modal-job-title">Senior .NET Developer</h2>
-                    <p id="modal-company-title">Company Name</p>
+                    <p id="modal-company-title">Technobrains IT Solution</p>
+                    
                     <div class="modal-match-box">
                         <div class="small-gauge" id="modal-fit-gauge">96%</div>
                         <div>
                             <h4>Top Match Rating</h4>
-                            <p id="modal-match-reason">Your skills align strongly with this role.</p>
+                            <p id="modal-match-reason">Your SQL DBA optimization and .NET Core skills are highly demanded for this role.</p>
                         </div>
                     </div>
+
                     <div class="cover-letter-area">
                         <div class="cover-letter-header">
-                            <label for="cover-letter-text">AI-Generated Cover Letter</label>
+                            <label for="cover-letter-text">Customized AI Cover Letter</label>
                             <button class="regen-btn" id="btn-regen-letter">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
                                 Regenerate
@@ -692,45 +657,46 @@
                             <input type="text" id="apply-phone" value="+91 84189 31740" required>
                         </div>
                         <div class="form-group">
-                            <label for="apply-resume">Resume Attached</label>
-                            <div class="simulated-file-input">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                                <span class="file-name">Gaurav_Maurya_ATS_Resume_Backend.pdf</span>
-                                <span class="file-size">(8.0 KB)</span>
-                            </div>
+                            <label for="apply-resume">Resume file for this application</label>
+                            <label class="simulated-file-input" for="apply-resume">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span class="file-name" id="apply-resume-name">Choose a PDF or DOCX file</span>
+                            </label>
+                            <input type="file" id="apply-resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="position:absolute;width:1px;height:1px;opacity:0;">
+                            <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">The file stays on this device; upload it manually on the employer’s application page.</p>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;" id="btn-submit-apply">Submit Application</button>
+                        <button type="submit" class="btn btn-primary btn-block" id="btn-submit-apply">Record as Applied</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ════════════════ TOAST ════════════════ -->
-    <div class="toast-notification" id="toast-notification">
-        <span id="toast-message">Done!</span>
+    <!-- Alert / Toast Popup -->
+    <div class="toast hidden" id="toast-notification">
+        <span id="toast-message">Application submitted successfully!</span>
     </div>
 
-    <!-- ════════════════ LOCK SCREEN ════════════════ -->
-    <div class="lock-screen" id="lock-screen">
-        <div class="lock-card" id="lock-card">
-            <div class="lock-logo">
-                <div class="lock-icon-wrap">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+    <!-- Security Lock Screen -->
+    <div class="lock-screen-container" id="lock-screen">
+        <div class="lock-card">
+            <div class="lock-avatar">GM</div>
+            <h2 class="lock-title">ApexApply Portal Locked</h2>
+            <p class="lock-subtitle">This local privacy screen is not a security boundary.</p>
+            <form id="lock-form">
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label for="lock-email">Username / Email</label>
+                    <input type="text" id="lock-email" value="gauravmaurya919@gmail.com" readonly style="background: rgba(5,7,12,0.4); border: 1px dashed var(--border-color); color: var(--text-secondary); cursor: not-allowed;">
                 </div>
-                <h2>ApexApply Portal</h2>
-                <p>Verify credentials to access Gaurav's workspace</p>
-            </div>
-            <form class="lock-form" id="lock-form">
-                <div>
-                    <label for="lock-password">Access Password</label>
-                    <input type="password" id="lock-password" placeholder="Enter your password..." required autocomplete="current-password">
+                <div class="form-group" style="position: relative; margin-bottom: 24px;">
+                    <label for="lock-password">Local screen passcode</label>
+                    <input type="password" id="lock-password" placeholder="Enter dashboard password..." required style="width: 100%; padding: 12px 16px; background: rgba(5,7,12,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: white;">
                 </div>
-                <button type="submit" class="lock-submit-btn" id="btn-unlock-portal">Unlock Workspace</button>
+                <button type="submit" class="btn btn-primary btn-block" id="btn-unlock-portal" style="width: 100%; padding: 12px; font-weight: 700;">Unlock Workspace</button>
             </form>
-            <div style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 11px; color: var(--text-muted);">
+            <div class="lock-footer" style="margin-top: 24px; display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-muted);">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>SHA-256 Encrypted Session Protection</span>
+                <span>Local session privacy screen</span>
             </div>
         </div>
     </div>
